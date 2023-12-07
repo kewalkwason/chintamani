@@ -1,5 +1,6 @@
 @extends('admin.layouts.master')
 @section('content')
+
 <div class="pcoded-content">
     <div class="pcoded-inner-content">
         <div class="main-body">
