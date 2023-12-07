@@ -1,0 +1,104 @@
+%PDF-1.2
+%сссс
+1 0 obj
+<<
+/Creator (Ivica Masar PSOPDF)
+/Producer (stored procedure for ms sql  pso@vip.hr)
+/Title (SQL2PDF)
+>>
+endobj
+4 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F1
+/Encoding 5 0 R
+/BaseFont /Arial
+>>
+endobj
+5 0 obj
+<<
+/Type /Encoding
+/BaseEncoding /WinAnsiEncoding
+>>
+endobj
+6 0 obj
+<<
+  /Font << /F1 4 0 R >>  /ProcSet [ /PDF /Text ]
+>>
+endobj
+7 0 obj
+<<
+/Type /Page
+/Parent 3 0 R
+/Resources 6 0 R
+/Contents 8 0 R
+>>
+endobj
+8 0 obj
+<<
+/Length 9 0 R
+>>
+stream
+BT
+/F1 5 Tf
+1 0 0 1 50 802 Tm
+12 TL
+T* (TERRIER SECURITY SERVICES (INDIA) PVT LTD : IN LIEU OF MUSTER ROLL FORM XVI, REGISTER OF WAGES FORM XVII, REGISTER OF OT FORM XXIII,WAGES SLIP XIX ) Tj
+T* (LEAVE WITH WAGES FORM F SEE RULE 8 S & C ACT For the Month of     Jun-2022 ) Tj
+T* (_________________________________________________________________________________________________________________________________________________ ) Tj
+T* (CODE NO : MG842     Name : MUKESH KUMAR NEGI                                        ESI No: 6928969628           PF No: KN/43591/86746 ) Tj
+T* (DESIGN. : SSS     Unit : SFHG     SODEXO INDIA SERVICES PRIVATE LIMITED- HUL, GURGAON                                                       UANo:101260646330 ) Tj
+T* (NO.OF DAYS WORKED. : 26          NFH : 0          SPNFH :0          ENC.LEA : 1          CL: 0                                                       A/CNo.:114801507515 ) Tj
+T* (PAYING  BASIC  DA       HRA    WASH APPT.  CONV.  BONUS CMA  GUNAL LUN  SWT OTAMT NFH SNFH  EL  CL/SL    Total ) Tj
+T* (SCALE    12385  0           1000    0          3045    800        0           0        0           0       0                                                           17230 ) Tj
+T* (WAGE EARNED ) Tj
+T* (                12385  0          1000    0          3045    800        0           0        0           0       0        0            0      0       828  663     18721 ) Tj
+T* (                              ESI    PF       P.T    GMC   SOC  S.ADV  TDS     S.DEP  UNI   TRG COM/LWF  COU    OTHERS     TotalDedn ) Tj
+T* (DEDUCTIONS      141   1800    0        0          0        0          0          0           0        0        25             0          0                        1966 ) Tj
+T* (_________________________________________________________________________________________________________________________________________________ ) Tj
+T* (NET SALARY PAYABLE                                                                                                                                                          16755 ) Tj
+T* (_________________________________________________________________________________________________________________________________________________ ) Tj
+T* (                                                                                Note: This is a computer generated salary slip does not require any signature ) Tj
+ET
+endstream
+endobj
+9 0 obj
+1485
+endobj
+2 0 obj
+<<
+/Type /Catalog
+/Pages 3 0 R
+/PageLayout /OneColumn
+>>
+endobj
+3 0 obj
+<<
+/Type /Pages
+/Count 1
+/MediaBox [ 0 0 595 842 ]
+/Kids [ 7 0 R ]
+>>
+endobj
+xref
+0 10
+0000000000 65535 f
+0000000017 00000 n
+0000002051 00000 n
+0000002130 00000 n
+0000000144 00000 n
+0000000247 00000 n
+0000000321 00000 n
+0000000396 00000 n
+0000000484 00000 n
+0000002028 00000 n
+trailer
+<<
+/Size 10
+/Root 2 0 R
+/Info 1 0 R
+>>
+startxref
+2223
+%%EOF

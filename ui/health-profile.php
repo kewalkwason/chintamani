@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <title>Get a Quotes - Smart Way to Buy Best Insuarance..</title>
+   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="assets/fonts/line-icons.css">
+   <link rel="stylesheet" type="text/css" href="assets/css/slicknav.css">
+   <link rel="stylesheet" type="text/css" href="assets/css/color-switcher.css">
+   <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+   <link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css">
+   <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+   <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+   <link rel="stylesheet" type="text/css" href="assets/css/nirvawa.css">
+   <script src="https://use.fontawesome.com/0672fbfec2.js"></script>
+</head>
+
+<body>
+   <header id="header-wrap">
+      <div class="top-bar">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-7 col-md-5 col-xs-12">
+                  <ul class="list-inline">
+                     <li><i class="lni-phone"></i> +0123 456 789</li>
+                     <li><i class="lni-envelope"></i> <a href="http://preview.uideck.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fb888e8b8b94898fbb9c969a9297d5989496">[email&#160;protected]</a></li>
+                  </ul>
+               </div>
+               <div class="col-lg-5 col-md-7 col-xs-12">
+                  <div class="roof-social float-right"> <a class="facebook" href="#"><i class="lni-facebook-filled"></i></a> <a class="twitter" href="#"><i class="lni-twitter-filled"></i></a> <a class="instagram" href="#"><i class="lni-instagram-filled"></i></a> <a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a> <a class="google" href="#"><i class="lni-google-plus"></i></a> </div>
+                  <div class="header-top-right float-right"> <a href="login.html" class="header-top-button"><i class="lni-lock"></i> Log In</a> | <a href="register.html" class="header-top-button"><i class="lni-pencil"></i> Register</a> </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <nav class="navbar navbar-expand-lg bg-white fixed-top scrolling-navbar">
+         <div class="container">
+            <div class="navbar-header">
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> <span class="lni-menu"></span> <span class="lni-menu"></span> <span class="lni-menu"></span> </button>
+               <a href="index.html" class="navbar-brand"><img src="assets/img/logo.png" alt=""></a>
+            </div>
+            <div class="collapse navbar-collapse" id="main-navbar">
+               <ul class="navbar-nav mr-auto w-100 justify-content-center">
+                  <li class="nav-item dropdown active"> <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Home
+                        </a> </li>
+                  <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        LIfe Insurance
+                        </a>
+                     <div class="dropdown-menu"> <a class="dropdown-item" href="#">Ad Grid</a> <a class="dropdown-item" href="#">Ad Listing</a> <a class="dropdown-item" href="#">Listing Detail</a> </div>
+                  </li>
+                  <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Health Insurance
+                        </a>
+                     <div class="dropdown-menu"> <a class="dropdown-item" href="#">Ad Grid</a> <a class="dropdown-item" href="#">Ad Listing</a> <a class="dropdown-item" href="#">Listing Detail</a> </div>
+                  </li>
+                  <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Car Insurance
+                        </a>
+                     <div class="dropdown-menu"> <a class="dropdown-item" href="#">Ad Grid</a> <a class="dropdown-item" href="#">Ad Listing</a> <a class="dropdown-item" href="#">Listing Detail</a> </div>
+                  </li>
+                  <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Bike Insurance
+                        </a>
+                     <div class="dropdown-menu"> <a class="dropdown-item" href="#">Ad Grid</a> <a class="dropdown-item" href="#">Ad Listing</a> <a class="dropdown-item" href="#">Listing Detail</a> </div>
+                  </li>
+                  <li class="nav-item"> <a class="nav-link" href="#">
+                        Claim Now
+                        </a> </li>
+               </ul>
+               <div class="post-btn"> <a class="btn btn-common" href="post-ads.html"><i class="lni-pencil-alt"></i>Become Agent with
+                     us</a> </div>
+            </div>
+         </div>
+         <ul class="mobile-menu">
+            <li> <a class="active" href="#">
+                  Home
+                  </a> </li>
+            <li> <a href="#">
+                  Health Insuarance
+                  </a>
+               <ul class="dropdown">
+                  <li><a href="#">Ad Grid</a></li>
+                  <li><a href="#">Ad Listing</a></li>
+                  <li><a href="#">Listing Detail</a></li>
+               </ul>
+            </li>
+            <li> <a href="#">
+                  Life Insuarance
+                  </a>
+               <ul class="dropdown">
+                  <li><a href="#">Ad Grid</a></li>
+                  <li><a href="#">Ad Listing</a></li>
+                  <li><a href="#">Listing Detail</a></li>
+               </ul>
+            </li>
+            <li> <a href="#">
+                  Car Insuarance
+                  </a>
+               <ul class="dropdown">
+                  <li><a href="#">Ad Grid</a></li>
+                  <li><a href="#">Ad Listing</a></li>
+                  <li><a href="#">Listing Detail</a></li>
+               </ul>
+            </li>
+            <li> <a href="#">
+                  Bike Insuarance
+                  </a>
+               <ul class="dropdown">
+                  <li><a href="#">Ad Grid</a></li>
+                  <li><a href="#">Ad Listing</a></li>
+                  <li><a href="#">Listing Detail</a></li>
+               </ul>
+            </li>
+            <li> <a href="#">Claim Now</a> </li>
+         </ul>
+      </nav>
+   </header>
+   <div class="page-header" style="background: url(assets/img/banner1.jpg);">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="breadcrumb-wrapper">
+                  <h2 class="product-title"> </h2> </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <section id="about" class="section-padding banners__bgs">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-2"> </div>
+            <div class="col-md-8">
+               <div class="page-ath-wrap">
+                  <div class="page-ath-content register-form-content">
+                     <div class="page-ath-form">
+                        <div class="form-align-box">
+                           <div class="wizard">
+                              <div class="progress" style="height: 30px;">
+                                 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="10" style="width: 15%;"> Step 1 of 8 </div>
+                              </div>
+                              <form role="form" action="index.html" class="register-wizard-box">
+                                 <div class="tab-content" id="main_form">
+                                    <div class="tab-pane active" role="tabpanel" id="step1">
+                                       <div class="form-input-steps">
+                                          <h4>Health profile</h4>
+                                          <h3>Tell us about yourself, you are a...</h3>
+                                          <form>
+                                              
+
+                                             <div class="row">
+                                                <div class="col-md-6">
+                                                   <div class="card">
+                                                     <a href="">
+                                                        <img class="card-img-top avtar__css" src="assets/img/male-icons.png" alt="male-icons">
+                                                     <div class="card-body">
+                                                       <span class="card-title text-center">
+                                                          <div class="form-check">
+                                                              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                                              <label class="form-check-label" for="exampleRadios1">
+                                                                Male
+                                                              </label>
+                                                            </div>
+                                                       </span> 
+                                                     </div>
+                                                     </a>
+                                                   </div>
+                                                </div>
+                                                 <div class="col-md-6">
+                                                   <div class="card">
+                                                    <a href="">
+                                                        <img class="card-img-top avtar__css" src="assets/img/female-icons.png" alt="female-icons">
+                                                     <div class="card-body">
+                                                        <span class="card-title text-center">
+                                                          <div class="form-check">
+                                                              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                                              <label class="form-check-label" for="exampleRadios2">
+                                                                Female
+                                                              </label>
+                                                            </div>
+                                                       </span> 
+                                                     </div>
+                                                    </a>
+                                                   </div>
+                                                </div>
+                                             </div>
+
+
+                                          </form>
+                                           
+                                       </div>
+                                       <ul class="list-inline text-right">
+                                          <li>
+                                             <button type="button" class="step-btn prev-step"><i class="fa fa-chevron-left"></i><span>Back</span></button>
+                                          </li>
+                                          <li>
+                                             <button type="button" class="step-btn next-step"><span>Next</span><i class="fa fa-chevron-right"></i></button>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                    <div class="tab-pane" role="tabpanel" id="step2">
+                                       <div class="form-input-steps">
+                                          <h4>Health profile</h4>
+                                          <h3>Who would you like to get insured?</h3>
+                                           
+                                          <form>
+                                              
+
+                                             <div class="row">
+                                                <div class="col-md-5">
+                                                   
+                                                   <div  class="mt-30">
+                                                      <div class="form-check">
+                                                     <input class="form-check-input" type="checkbox" name="exampleRadios2" id="exampleRadios2" value="option1" >
+                                                     <label class="form-check-label text-dark" for="exampleRadios2">
+                                                       Female
+                                                     </label>
+                                                   </div>
+
+                                                   <div class="form-check">
+                                                     <input class="form-check-input" type="checkbox" name="exampleRadios3" id="exampleRadios3" value="option1" >
+                                                     <label class="form-check-label text-dark" for="exampleRadios3">
+                                                       Husband
+                                                     </label>
+                                                   </div>
+
+                                                   <div class="form-check">
+                                                     <input class="form-check-input" type="checkbox" name="exampleRadios4" id="exampleRadios4" value="option1" >
+                                                     <label class="form-check-label text-dark" for="exampleRadios4">
+                                                       Mother
+                                                     </label>
+                                                   </div>
+
+                                                   <div class="form-check">
+                                                     <input class="form-check-input" type="checkbox" name="exampleRadios5" id="exampleRadios5" value="option1" >
+                                                     <label class="form-check-label text-dark" for="exampleRadios5">
+                                                       Father
+                                                     </label>
+                                                   </div>
+
+                                                   <div class="form-check">
+                                                     <input class="form-check-input" type="checkbox" name="exampleRadios6" id="exampleRadios6" value="option1" >
+                                                     <label class="form-check-label text-dark" for="exampleRadios6">
+                                                       Son
+                                                     </label>
+                                                   </div>
+
+                                                   <div class="form-check">
+                                                     <input class="form-check-input" type="checkbox" name="exampleRadios7" id="exampleRadios7" value="option1" >
+                                                     <label class="form-check-label text-dark" for="exampleRadios7">
+                                                       Daughter
+                                                     </label>
+                                                   </div>
+                                                   </div>
+
+
+
+
+
+                                                </div>
+                                                 <div class="col-md-5">
+                                                   <img class="card-img-top " src="assets/img/female-icons.png" alt="female-icons">
+                                                </div>
+                                             </div>
+
+
+                                          </form>
+
+
+
+
+                                       </div>
+                                       <ul class="list-inline text-right">
+                                          <li>
+                                             <button type="button" class="step-btn prev-step"><i class="fa fa-chevron-left"></i><span>Back</span></button>
+                                          </li>
+                                          <li>
+                                             <button type="button" class="step-btn next-step"><span>Next</span><i class="fa fa-chevron-right"></i></button>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                    <div class="tab-pane" role="tabpanel" id="step3">
+                                       <div class="form-input-steps">
+                                          <h4>Health profile </h4>
+                                          <h3>What is their age?</p> </h3>
+                                          <form>
+                                             <div class="form-row">
+                                                <div class="form-group leff__bootm col-md-12">
+                                                   <h6 class="label__css">Self</h6>
+                                                   <input class="form-control" type="date" name="" placeholder="Name"> </div>
+                                                 
+                                                 
+                                             </div>
+                                          </form>
+                                       </div>
+                                       <ul class="list-inline text-right">
+                                          <li>
+                                             <button type="button" class="step-btn prev-step"><i class="fa fa-chevron-left"></i><span>Back</span></button>
+                                          </li>
+                                          <li> <a href="#!" class="step-btn next-step"><span>NEXT</span><i class="fa fa-chevron-right"></i></a> </li>
+                                       </ul>
+                                    </div>
+                                    <div class="tab-pane" role="tabpanel" id="step4">
+                                       <div class="form-input-steps">
+                                          <h4>Health profile </h4>
+                                          <h3>Are you planning to have a child? <br> <p>You should buy a maternity cover before planning a family, since it usually takes at least 9 months before the cover starts.</p></h3>
+
+                                          <form>
+                                              <div class="form-check">
+                                                     <input class="form-check-input" type="checkbox" name="exampleRadios6" id="exampleRadios6" value="option1" >
+                                                     <label class="form-check-label text-dark" for="exampleRadios6">
+                                                       Yes
+                                                     </label>
+                                                   </div>
+
+                                                   <div class="form-check">
+                                                     <input class="form-check-input" type="checkbox" name="exampleRadios7" id="exampleRadios7" value="option1" >
+                                                     <label class="form-check-label text-dark" for="exampleRadios7">
+                                                       No
+                                                     </label>
+                                                   </div>
+                                          </form>
+                                          <hr>
+                                       </div>
+                                       <ul class="list-inline text-right">
+                                          <li>
+                                             <button type="button" class="step-btn prev-step"><i class="fa fa-chevron-left"></i><span>Back</span></button>
+                                          </li>
+                                          <li> <a href="#!" class="step-btn next-step"><span>NEXT</span><i class="fa fa-chevron-right"></i></a> </li>
+                                       </ul>
+                                    </div>
+                                    <div class="tab-pane" role="tabpanel" id="step5">
+                                       <div class="form-input-steps">
+                                          <h4>Health profile </h4>
+                                          <h3>When are you planning to have a child?</p> </h3>
+                                          <form>
+                                              <div class="form-check">
+                                                     <input class="form-check-input" type="checkbox" name="exampleRadios6" id="exampleRadios6" value="option1" >
+                                                     <label class="form-check-label text-dark" for="exampleRadios6">
+                                                     Within 1 year
+                                                     </label>
+                                                   </div>
+
+                                                   <div class="form-check">
+                                                     <input class="form-check-input" type="checkbox" name="exampleRadios7" id="exampleRadios7" value="option1" >
+                                                     <label class="form-check-label text-dark" for="exampleRadios7">
+                                                      1-3 Years
+                                                     </label>
+                                                   </div>
+                                                   <div class="form-check">
+                                                     <input class="form-check-input" type="checkbox" name="exampleRadios7" id="exampleRadios7" value="option1" >
+                                                     <label class="form-check-label text-dark" for="exampleRadios7">
+                                                      More than 3 Years
+                                                     </label>
+                                                   </div>
+                                          </form>
+                                          <hr>
+                                       </div>
+                                       <ul class="list-inline text-right">
+                                          <li>
+                                             <button type="button" class="step-btn prev-step"><i class="fa fa-chevron-left"></i><span>Back</span></button>
+                                          </li>
+                                          <li> <a href="#!" class="step-btn next-step"><span>NEXT</span><i class="fa fa-chevron-right"></i></a> </li>
+                                       </ul>
+                                    </div>
+
+                                    <div class="tab-pane" role="tabpanel" id="step6">
+                                       <div class="form-input-steps">
+                                          <h4>Health profile </h4>
+                                          <h3>Does any of the members have any disease? <br> <p>Declaring this will help us find the best policy and avoid claim rejections. Don’t worry, your information will be kept confidential.</p> </h3>
+                                          <form>
+                                              <div class="form-check">
+                                                     <input class="form-check-input" type="checkbox" name="exampleRadios6" id="exampleRadios6" value="option1" >
+                                                     <label class="form-check-label text-dark" for="exampleRadios6">
+                                                    Yes
+                                                     </label>
+                                                   </div>
+
+                                                   <div class="form-check">
+                                                     <input class="form-check-input" type="checkbox" name="exampleRadios7" id="exampleRadios7" value="option1" >
+                                                     <label class="form-check-label text-dark" for="exampleRadios7">
+                                                      No
+                                                     </label>
+                                                   </div>
+                                                    
+                                          </form>
+                                          <hr>
+                                       </div>
+                                       <ul class="list-inline text-right">
+                                          <li>
+                                             <button type="button" class="step-btn prev-step"><i class="fa fa-chevron-left"></i><span>Back</span></button>
+                                          </li>
+                                          <li> <a href="#!" class="step-btn next-step"><span>NEXT</span><i class="fa fa-chevron-right"></i></a> </li>
+                                       </ul>
+                                    </div>
+                                    <div class="tab-pane" role="tabpanel" id="step7">
+                                       <div class="form-input-steps">
+                                          <h4>Health profile </h4>
+                                          <h3>Does any of the members have any disease? <br> <p>This information will help us get you a Health Insurance Policy with optimum Benefits for the stated illness/es.</p> </h3>
+                                          <form>
+                                             <div class="form-row">
+                                                <div class="form-group leff__bootm col-md-12">
+                                                   <h6 class="label__css">Self</h6>
+                                                    <select class="form-control">
+                                                       <option>Blood pressure</option>
+                                                    </select>
+                                                </div>
+                                                 
+                                             </div>
+                                          </form>
+                                       </div>
+                                       <ul class="list-inline text-right">
+                                          <li>
+                                             <button type="button" class="step-btn prev-step"><i class="fa fa-chevron-left"></i><span>Back</span></button>
+                                          </li>
+                                          <li> <a href="#!" class="step-btn next-step"><span>NEXT</span><i class="fa fa-chevron-right"></i></a> </li>
+                                       </ul>
+                                    </div>
+
+                                    <div class="tab-pane" role="tabpanel" id="step8">
+                                       <div class="form-input-steps">
+                                          <h4>Health profile  </h4>
+                                          <h3>What is your pincode? <br> <p>Health insurance premium might differ based on your location of residence.</p> </h3>
+                                          <form>
+                                             <div class="form-row">
+                                                <div class="form-group leff__bootm col-md-12">
+                                                   <h6 class="label__css">Your PIN Code</h6>
+                                                   <input class="form-control" type="text" name="" placeholder="Enter PIN, eg. 400001"> </div>
+                                                
+                                             </div>
+                                          </form>
+                                       </div>
+                                       <ul class="list-inline text-right">
+                                          <li>
+                                             <button type="button" class="step-btn prev-step"><i class="fa fa-chevron-left"></i><span>Back</span></button>
+                                          </li>
+                                          <li> <a href="#!" class="step-btn next-step"><span>NEXT</span><i class="fa fa-chevron-right"></i></a> </li>
+                                       </ul>
+                                    </div>
+
+
+                                    <div class="tab-pane" role="tabpanel" id="step9">
+                                       <div class="form-input-steps">
+                                          <h4>Health profile </h4>
+                                          <h3>Your preferred hospitals? <br> <p>We will look for plans that have your preferred hospitals in their cashless network.</p> </h3>
+                                          <form>
+                                             <div class="form-row">
+                                                <div class="form-group leff__bootm col-md-12">
+                                                   <h6 class="label__css">Your PIN Code</h6>
+                                                   <input class="form-control" type="text" name="" placeholder="Search hospitals near 841502"> </div>
+                                                
+                                             </div>
+                                          </form>
+                                       </div>
+                                       <ul class="list-inline text-right">
+                                          <li>
+                                             <button type="button" class="step-btn prev-step"><i class="fa fa-chevron-left"></i><span>Back</span></button>
+                                          </li>
+                                          <li> <a href="#!" class="step-btn next-step"><span>NEXT</span><i class="fa fa-chevron-right"></i></a> </li>
+                                       </ul>
+                                    </div>
+
+                                    <div class="tab-pane" role="tabpanel" id="step10">
+                                       <div class="form-input-steps">
+                                          <h4>Health profile </h4>
+                                          <h3>What is your income bracket? <br> <p>We will use this information to calculate your tax savings under section 80D.</p> </h3>
+                                          <form>
+                                              <div class="form-check">
+                                               <input class="form-check-input" type="radio" name="exampleRadios6" id="exampleRadios6" value="option1">
+                                               <label class="form-check-label text-dark" for="exampleRadios6">
+                                              Less than Rs 2.5 lakhs
+                                               </label>
+                                             </div>
+
+                                             <div class="form-check">
+                                               <input class="form-check-input" type="radio" name="exampleRadios7" id="exampleRadios7" value="option1">
+                                               <label class="form-check-label text-dark" for="exampleRadios7">
+                                               Rs 2.5 to 5 lakhs
+                                               </label>
+                                             </div>
+
+                                             <div class="form-check">
+                                               <input class="form-check-input" type="radio" name="exampleRadios7" id="exampleRadios7" value="option1">
+                                               <label class="form-check-label text-dark" for="exampleRadios7">
+                                               Rs 5 to 10 lakhs
+                                               </label>
+                                             </div>
+                                             <div class="form-check">
+                                               <input class="form-check-input" type="radio" name="exampleRadios7" id="exampleRadios7" value="option1">
+                                               <label class="form-check-label text-dark" for="exampleRadios7">
+                                               More than Rs 10 lakhs
+                                               </label>
+                                             </div>
+                                                    
+                                          </form>
+                                       </div>
+                                       <ul class="list-inline text-right">
+                                          <li>
+                                             <button type="button" class="step-btn prev-step"><i class="fa fa-chevron-left"></i><span>Back</span></button>
+                                          </li>
+                                          <li> <a href="#!" class="step-btn next-step"><span>NEXT</span><i class="fa fa-chevron-right"></i></a> </li>
+                                       </ul>
+                                    </div>
+
+
+                                    <div class="tab-pane" role="tabpanel" id="step11">
+                                       <div class="form-input-steps">
+                                          <h4>Health profile </h4>
+                                          <h3>Save your quotes now <br> <p>We will use this information to calculate your tax savings under section 80D.</p> </h3>
+                                          <form>
+                                               <div class="form-row">
+                                                 <div class="form-group leff__bootm col-md-12">
+                                                   <h6 class="label__css">Name</h6>
+                                                   <input class="form-control" type="text" name="" placeholder="Name">
+                                                 </div>
+                                                 <div class="form-group leff__bootm col-md-12">
+                                                   <h6 class="label__css">Mobile</h6>
+                                                   <input class="form-control" type="text" name="" placeholder="Mobile">
+                                                 </div>
+                                                 <div class="form-group leff__bootm col-md-12">
+                                                   <h6 class="label__css">Email</h6>
+                                                   <input class="form-control" type="text" name="" placeholder="Email">
+                                                 </div>
+                                                  
+                                               </div>  
+                                             </form>
+                                       </div>
+                                       <ul class="list-inline text-right">
+                                          <li>
+                                             <button type="button" class="step-btn prev-step"><i class="fa fa-chevron-left"></i><span>Back</span></button>
+                                          </li>
+                                          <li> <a href="health-insurance-dashboard.html" class="step-btn next-step"><span>NEXT</span><i class="fa fa-chevron-right"></i></a> </li>
+                                       </ul>
+                                    </div>
+
+
+                                    <div class="clearfix"></div>
+                                 </div>
+                              </form>
+                              <div class="wizard-inner">
+                                 <ul class="nav nav-tabs" role="tablist">
+                                    <li class="liisting" role="presentation">
+                                       <a href="#step1" class="active" data-toggle="tab" aria-controls="step1" role="tab" aria-expanded="true" data-step="1"> <span class="round-tab">1</span> </a>
+                                    </li>
+                                    <li class="liisting" role="presentation">
+                                       <a href="#step2" class="disabled" data-toggle="tab" aria-controls="step2" role="tab" aria-expanded="false" data-step="2"> <span class="round-tab">2</span> </a>
+                                    </li>
+                                    <li class="liisting" role="presentation">
+                                       <a href="#step3" class="disabled" data-toggle="tab" aria-controls="step3" role="tab" data-step="3"> <span class="round-tab">3</span> </a>
+                                    </li>
+                                    <li class="liisting" role="presentation">
+                                       <a href="#step4" class="disabled" data-toggle="tab" aria-controls="step4" role="tab" data-step="4"> <span class="round-tab">4</span> </a>
+                                    </li>
+                                    <li class="liisting" role="presentation">
+                                       <a href="#step5" class="disabled" data-toggle="tab" aria-controls="step5" role="tab" data-step="5"> <span class="round-tab">5</span> </a>
+                                    </li>
+                                    <li class="liisting" role="presentation">
+                                       <a href="#step6" class="disabled" data-toggle="tab" aria-controls="step6" role="tab" data-step="6"> <span class="round-tab">6</span> </a>
+                                    </li>
+                                    <li class="liisting" role="presentation">
+                                       <a href="#step7" class="disabled" data-toggle="tab" aria-controls="step7" role="tab" data-step="7"> <span class="round-tab">7</span> </a>
+                                    </li>
+                                    <li class="liisting" role="presentation">
+                                       <a href="#step8" class="disabled" data-toggle="tab" aria-controls="step8" role="tab" data-step="8"> <span class="round-tab">8</span> </a>
+                                    </li>
+                                    <li class="liisting" role="presentation">
+                                       <a href="#step9" class="disabled" data-toggle="tab" aria-controls="step9" role="tab" data-step="9"> <span class="round-tab">9</span> </a>
+                                    </li>
+                                    <li class="liisting" role="presentation">
+                                       <a href="#step10" class="disabled" data-toggle="tab" aria-controls="step10" role="tab" data-step="10"> <span class="round-tab">10</span> </a>
+                                    </li>
+                                    <li class="liisting" role="presentation">
+                                       <a href="#step11" class="disabled" data-toggle="tab" aria-controls="step11" role="tab" data-step="11"> <span class="round-tab">11</span> </a>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- <div class="col-md-4"> // </div> -->
+         </div>
+      </div>
+   </section>
+
+<style type="text/css">
+   .wizard .nav-tabs > .liisting {
+    width: 8% !important;
+    position: relative;
+}
+</style>
+
+   <section class="counter-section section-padding">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-3 col-sm-6 work-counter-widget">
+               <div class="counter"> </div>
+            </div>
+            <div class="col-md-3 col-sm-6 work-counter-widget">
+               <div class="counter"> </div>
+            </div>
+            <div class="col-md-3 col-sm-6 work-counter-widget">
+               <div class="counter"> </div>
+            </div>
+            <div class="col-md-3 col-sm-6 work-counter-widget">
+               <div class="counter"> </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <footer>
+      <section class="footer-Content">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-4 col-md-4 col-xs-6 col-mb-12">
+                  <div class="widget">
+                     <div class="footer-logo"><img src="assets/img/logo.png" alt="" style="width: 200px;"></div>
+                     <div class=" textwidget">
+                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt consectetur, adipisci velit. </p>
+                     </div>
+                     <ul class="mt-3 footer-social">
+                        <li><a class="facebook" href="#"><i class="lni-facebook-filled"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="lni-twitter-filled"></i></a></li>
+                        <li><a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a></li>
+                        <li><a class="google-plus" href="#"><i class="lni-google-plus"></i></a></li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-4 col-xs-6 col-mb-12">
+                  <div class="widget">
+                     <h3 class="block-title">Quick Link</h3>
+                     <ul class="menu">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Claim</a></li>
+                        <li><a href="#">Career</a></li>
+                        <li><a href="#">Refund Poolicy </a></li>
+                        <li><a href="#">Become Agent with Us</a></li>
+                        <li><a href="#">Term & Conditions</a></li>
+                        <li><a href="#">FAQ's</a></li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-4 col-xs-6 col-mb-12">
+                  <div class="widget">
+                     <h3 class="block-title">Contact Info</h3>
+                     <ul class="contact-footer">
+                        <li> <strong><i class="lni-phone"></i></strong><span>+1 555 444 66647 <br> +1 555 444
+                           66647</span> </li>
+                        <li> <strong><i class="lni-envelope"></i></strong><span><a
+                              href="http://preview.uideck.com/cdn-cgi/l/email-protection"
+                              class="__cf_email__"
+                              data-cfemail="9efdf1f0eafffdeadef3fff7f2b0fdf1f3">[email&#160;protected]</a>
+                           <br> <a href="http://preview.uideck.com/cdn-cgi/l/email-protection"
+                              class="__cf_email__"
+                              data-cfemail="e4979194948b9690a489858d88ca878b89">[email&#160;protected]</a></span> </li>
+                        <li> <strong><i class="lni-map-marker"></i></strong><span><a href="#">9870 St Vincent
+                           Place, Glasgow, DC 45 <br>Fr 45</a></span> </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+      </section>
+      <div id="copyright">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="site-info text-center">
+                     <p><a target="_blank" href="https://templateshub.net">© 2022 Nirvia, All Rights
+                           Reserved.</a> </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+   <a href="#" class="back-to-top"> <i class="lni-chevron-up"></i> </a>
+   <div id="preloader">
+      <div class="loader" id="loader-1"></div>
+   </div>
+   <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+   <script src="assets/js/jquery-min.js"></script>
+   <script src="assets/js/popper.min.js"></script>
+   <script src="assets/js/bootstrap.min.js"></script>
+   <script src="assets/js/jquery.counterup.min.js"></script>
+   <script src="assets/js/waypoints.min.js"></script>
+   <script src="assets/js/wow.js"></script>
+   <script src="assets/js/owl.carousel.min.js"></script>
+   <script src="assets/js/jquery.slicknav.js"></script>
+   <script src="assets/js/main.js"></script>
+   <script src="assets/js/form-validator.min.js"></script>
+   <script src="assets/js/contact-form-script.min.js"></script>
+   <script src="assets/js/summernote.js"></script>
+   <script type="text/javascript">
+   // ------------register-steps--------------
+   $(document).ready(function() {
+      $('.nav-tabs > li a[title]').tooltip();
+      //Wizard
+      $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+         var $target = $(e.target);
+         if($target.hasClass('disabled')) {
+            return false;
+         }
+         // handle with prgressbar 
+         var step = $(e.target).data('step');
+         var percent = (parseInt(step) / 4) * 100;
+         $('.progress-bar').css({
+            width: percent + '%'
+         });
+         $('.progress-bar').text('Step ' + step + ' of 10');
+      });
+      $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+         var $target = $(e.target);
+         $target.parent().addClass('active');
+      });
+      $('a[data-toggle="tab"]').on('hide.bs.tab', function(e) {
+         var $target = $(e.target);
+         $target.parent().removeClass('active');
+      });
+      $(".next-step").click(function(e) {
+         var $active = $('.wizard .nav-tabs li a.active');
+         $active.parent().next().children().removeClass('disabled');
+         $active.parent().addClass('done');
+         nextTab($active);
+      });
+      $(".prev-step").click(function(e) {
+         var $active = $('.wizard .nav-tabs li a.active');
+         prevTab($active);
+      });
+   });
+
+   function nextTab(elem) {
+      $(elem).parent().next().find('a[data-toggle="tab"]').click();
+   }
+
+   function prevTab(elem) {
+      $(elem).parent().prev().find('a[data-toggle="tab"]').click();
+   }
+   </script>
+</body>
+
+</html>
