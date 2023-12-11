@@ -167,7 +167,7 @@
                 },
                 {
                     "data": "sanctioned_by"
-                },               
+                },
                 {
                     "data": "applied_date"
                 },

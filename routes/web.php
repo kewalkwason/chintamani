@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/dsa_user.php';
 
+Route::get('/quick-enquiry', function () {
+	return view('frontend.quick-enquiry');
+})->name('quick-enquiry');
+
 Route::get('/mandate-registration', function () {
 	return view('frontend.mandate-registration');
 })->name('mandate-registration');

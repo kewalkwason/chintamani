@@ -66,39 +66,24 @@
                                                     </div>
                                                     <div class="col-md-2">
                                                         <label for="input1" class="form-label">Start Date :</label>
-                                                        <input type="date" class="form-control shadow" id="input1" placeholder="">
+                                                        <input type="date" class="form-control shadow" name="start_date" id="start_date" placeholder="">
                                                     </div>
                                                     <div class="col-md-2">
                                                         <label for="input1" class="form-label">End Date :</label>
-                                                        <input type="date" class="form-control shadow" id="input1" placeholder="">
+                                                        <input type="date" class="form-control shadow" id="end_date" name="end_date" placeholder="">
                                                     </div>
                                                     <div class="col-md-3">
                                                         <label for="input1" class="form-label">Select Executive :</label>
                                                         <select name="executive_id" class="form-control">
-                                                            <option value="all">All</option>
-                                                            <option value="4">Vijay</option>
-                                                            <option value="6">Gaurav</option>
-                                                            <option value="7">Varsha</option>
-                                                            <option value="9">Chamma</option>
-                                                            <option value="10">Poonam</option>
-                                                            <option value="12">Prashant</option>
-                                                            <option value="14">Yashika</option>
-                                                            <option value="16">Prashant</option>
-                                                            <option value="22">Shalu</option>
-                                                            <option value="23">Anjali</option>
-                                                            <option value="24">Tanya</option>
-                                                            <option value="25">Rupa</option>
-                                                            <option value="26">Ruchi</option>
-                                                            <option value="28">Kumari </option>
-                                                            <option value="32">Ritu</option>
-                                                            <option value="34">Sanjana</option>
-                                                            <option value="35">Prerna </option>
-                                                            <option value="36">Salu</option>
+                                                        <option value="all">All</option>
+                                                            @foreach($users as $value)
+                                                            <option value="{{$value->id}}">{{$value->first_name}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="mts100s">
-                                                            <button type="button" class="btn btn-dark px-5">Filter</button>
+                                                            <button type="button" id="filterButton" class="btn btn-dark px-5">Filter</button>
                                                         </div>
                                                     </div>
 
@@ -240,6 +225,14 @@
     }
 </script>
 <script>
+     $(document).ready(function() {
+        table_schedule();
+        $('#filterButton').on('click', function() {
+            table_schedule();
+        });
+
+    });
+
     var list = '{{ route("verification.loan") }}';
     var titleName = 'Verification List';
     $(document).ready(function() {
@@ -265,9 +258,12 @@
                 "url": list,
                 "type": "GET",
                 'dataType': "json",
-                data: function(d) {
+                 data: function(d) {
                     d._token = "{{ csrf_token() }}";
                     d.level = 1;
+                    d.start_date = $('#start_date').val();
+                    d.end_date = $('#end_date').val();
+                    d.executive_id = $('#executive_id').val();
                 },
             },
             "columns": [{

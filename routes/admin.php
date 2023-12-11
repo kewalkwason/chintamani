@@ -184,6 +184,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
     Route::get('/verification', [VerificationController::class, 'index'])->name('verification.loan');
     Route::get('/loanuser-details/{id}', [VerificationController::class, 'loanuserDetails'])->name('loanuser.details');
+    Route::get('/addGurrantor/{id}', [VerificationController::class, 'addGurrantor'])->name('add.gurrantor');
+    Route::post('/addNewGurrantor', [VerificationController::class, 'addNewGurrantor'])->name('add.new.gurrantor');
+    Route::post('/loan-verify', [VerificationController::class, 'loanVerify'])->name('loan.verify');
     Route::post('verification-delete', [VerificationController::class, 'destroy'])->name('verificationloan.delete');
 
     Route::get('/appliedloans', [AppliedLoansController::class, 'index'])->name('appliedloans.loan');

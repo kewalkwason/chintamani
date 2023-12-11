@@ -61,7 +61,11 @@
                                  <div class="col-sm-3  user-profile">
                                     <div class="card-block text-center text-white">
                                        <div class="m-b-25">
+                                          @if(!empty($data->profile_pic))
                                           <img src="{{ asset('uploads/$data->profile_pic')}}" class="img-radius fximsg img-fluid" alt="User-Profile-Image">
+                                          @else
+                                          <img src="{{ asset('admin\images\user_profile.svg')}}" class="img-radius fximsg img-fluid" alt="User-Profile-Image">
+                                          @endif
                                        </div>
                                     </div>
                                  </div>
@@ -204,7 +208,11 @@
                                  <div class="col-sm-3  user-profile">
                                     <div class="card-block text-center text-white">
                                        <div class="m-b-25">
+                                          @if(!empty($data->profile_pic))
                                           <img src="{{ asset('uploads/$data->profile_pic')}}" class="img-radius fximsg img-fluid" alt="User-Profile-Image">
+                                          @else
+                                          <img src="{{ asset('admin\images\user_profile.svg')}}" class="img-radius fximsg img-fluid" alt="User-Profile-Image">
+                                          @endif
                                        </div>
                                     </div>
                                  </div>
@@ -285,7 +293,11 @@
                               <div class="col-sm-3  user-profile">
                                  <div class="card-block text-center text-white">
                                     <div class="m-b-25">
-                                       <img src="images/user_profile.svg" class="img-radius fximsg img-fluid" alt="User-Profile-Image">
+                                       @if(!empty($data->profile_pic))
+                                       <img src="{{ asset('uploads/$data->profile_pic')}}" class="img-radius fximsg img-fluid" alt="User-Profile-Image">
+                                       @else
+                                       <img src="{{ asset('admin\images\user_profile.svg')}}" class="img-radius fximsg img-fluid" alt="User-Profile-Image">
+                                       @endif
                                     </div>
                                  </div>
                               </div>
@@ -295,36 +307,60 @@
                                     <div class="row">
                                        <div class="col-sm-6">
                                           <p class="m-b-10 nbigSing f-w-900"><strong>Aadhaar Card Front </strong>
-                                             <button type="button" class="btn-sm btn alitsBtns hor-grd btn-grd-warning waves-effect md-trigger" data-toggle="modal" data-target="#exampleModalCenter">View</button>
+                                             @if(!empty($data->aadharfront))
+                                             <button type="button" class="btn-sm btn alitsBtns hor-grd btn-grd-warning waves-effect md-trigger aadhar-front" doc-img='<img class="d-block img-fluid" src="{{asset("uploads")}}/{{$data->aadharfront}}" alt="Third slide">' data-toggle="modal" data-target="#aadharfrontModalCenter">View</button>
+                                             @else
+                                             <button type="button" class="btn-sm btn alitsBtns hor-grd btn-grd-warning waves-effect md-trigger aadhar-front" doc-img='<img class="d-block img-fluid" src="{{asset("uploads")}}/{{$data->aadhar_front}}" alt="Third slide">' data-toggle="modal" data-target="#aadharfrontModalCenter">View</button>
+                                             @endif
                                           </p>
                                        </div>
                                        <div class="col-sm-6">
                                           <p class="m-b-10 nbigSing f-w-900"><strong>Aadhaar card Back</strong>
-                                             : <a class="btn-sm btn alitsBtns hor-grd btn-grd-warning" href="#!">View </a>
+                                             @if(!empty($data->aadharback))
+                                             <button type="button" class="btn-sm btn alitsBtns hor-grd btn-grd-warning waves-effect md-trigger" doc-img='<img class="d-block img-fluid" src="{{asset("uploads")}}/{{$data->aadharback}}" alt="Third slide">' data-toggle="modal" data-target="#aadharbackModalCenter">View</button>
+                                             @else
+                                             <button type="button" class="btn-sm btn alitsBtns hor-grd btn-grd-warning waves-effect md-trigger" doc-img='<img class="d-block img-fluid" src="{{asset("uploads")}}/{{$data->aadhar_back}}" alt="Third slide">' data-toggle="modal" data-target="#aadharbackModalCenter">View</button>
+                                             @endif
                                           </p>
                                        </div>
                                     </div>
                                     <div class="row">
                                        <div class="col-sm-6">
                                           <p class="m-b-10 nbigSing f-w-900"><strong>Pan Card </strong>
-                                             : <a class="btn-sm btn alitsBtns hor-grd btn-grd-warning" href="#!">View</a>
+                                             : @if(!empty($data->pancardphoto))
+                                             <button type="button" class="btn-sm btn alitsBtns hor-grd btn-grd-warning waves-effect md-trigger pancard-photo" doc-img='<img class="d-block img-fluid" src="{{asset("uploads")}}/{{$data->pancardphoto}}" alt="Third slide">' data-toggle="modal" data-target="#pancardphotoModalCenter">View</button>
+                                             @else
+                                             <button type="button" class="btn-sm btn alitsBtns hor-grd btn-grd-warning waves-effect md-trigger pancard-photo" doc-img='<img class="d-block img-fluid" src="{{asset("uploads")}}/{{$data->pan_card_photo}}" alt="Third slide">' data-toggle="modal" data-target="#pancardphotoModalCenter">View</button>
+                                             @endif
                                           </p>
                                        </div>
                                        <div class="col-sm-6">
                                           <p class="m-b-10 nbigSing f-w-900"><strong>Profile picture</strong>
-                                             : <a class="btn-sm btn alitsBtns hor-grd btn-grd-warning" href="#!">View</a>
+                                             : @if(!empty($data->profilepic))
+                                             <button type="button" class="btn-sm btn alitsBtns hor-grd btn-grd-warning waves-effect md-trigger profile-pic" doc-img='<img class="d-block img-fluid" src="{{asset("uploads")}}/{{$data->profilepic}}" alt="Third slide">' data-toggle="modal" data-target="#profilepicModalCenter">View</button>
+                                             @else
+                                             <button type="button" class="btn-sm btn alitsBtns hor-grd btn-grd-warning waves-effect md-trigger profile-pic" doc-img='<img class="d-block img-fluid" src="{{asset("uploads")}}/{{$data->profile_pic}}" alt="Third slide">' data-toggle="modal" data-target="#profilepicModalCenter">View</button>
+                                             @endif
                                           </p>
                                        </div>
                                     </div>
                                     <div class="row">
                                        <div class="col-sm-6">
                                           <p class="m-b-10 nbigSing f-w-900"><strong>Salary slip 1</strong>
-                                             : <a class="btn-sm btn alitsBtns hor-grd btn-grd-warning" href="#!">View</a>
+                                             : @if(!empty($data->salary1))
+                                             <button type="button" class="btn-sm btn alitsBtns hor-grd btn-grd-warning waves-effect md-trigger salary-slip1" doc-img='<img class="d-block img-fluid" src="{{asset("uploads")}}/{{$data->salary1}}" alt="Third slide">' data-toggle="modal" data-target="#salaryslip1ModalCenter">View</button>
+                                             @else
+                                             <button type="button" class="btn-sm btn alitsBtns hor-grd btn-grd-warning waves-effect md-trigger salary-slip1" doc-img='<img class="d-block img-fluid" src="{{asset("uploads")}}/{{$data->salary_slip1}}" alt="Third slide">' data-toggle="modal" data-target="#salaryslip1ModalCenter">View</button>
+                                             @endif
                                           </p>
                                        </div>
                                        <div class="col-sm-6">
                                           <p class="m-b-10 nbigSing f-w-900"><strong>Salary Slip 2 </strong>
-                                             : <a class="btn-sm btn alitsBtns hor-grd btn-grd-warning" href="#!">View </a>
+                                             : @if(!empty($data->salary2))
+                                             <button type="button" class="btn-sm btn alitsBtns hor-grd btn-grd-warning waves-effect md-trigger salary-slip2" doc-img='<img class="d-block img-fluid" src="{{asset("uploads")}}/{{$data->salary2}}" alt="Third slide">' data-toggle="modal" data-target="#salaryslip2ModalCenter">View</button>
+                                             @else
+                                             <button type="button" class="btn-sm btn alitsBtns hor-grd btn-grd-warning waves-effect md-trigger salary-slip2" doc-img='<img class="d-block img-fluid" src="{{asset("uploads")}}/{{$data->salary_slip2}}" alt="Third slide">' data-toggle="modal" data-target="#salaryslip2ModalCenter">View</button>
+                                             @endif
                                           </p>
                                        </div>
                                     </div>
@@ -332,12 +368,20 @@
                                     <div class="row">
                                        <div class="col-sm-6">
                                           <p class="m-b-10 nbigSing f-w-900"><strong>Salary Slip 3 </strong>
-                                             : <a class="btn-sm btn alitsBtns hor-grd btn-grd-warning" href="#!">View</a>
+                                             : @if(!empty($data->salary3))
+                                             <button type="button" class="btn-sm btn alitsBtns hor-grd btn-grd-warning waves-effect md-trigger salary-slip3" doc-img='<img class="d-block img-fluid" src="{{asset("uploads")}}/{{$data->salary3}}" alt="Third slide">' data-toggle="modal" data-target="#salaryslip3ModalCenter">View</button>
+                                             @else
+                                             <button type="button" class="btn-sm btn alitsBtns hor-grd btn-grd-warning waves-effect md-trigger salary-slip3" doc-img='<img class="d-block img-fluid" src="{{asset("uploads")}}/{{$data->salary_slip3}}" alt="Third slide">' data-toggle="modal" data-target="#salaryslip3ModalCenter">View</button>
+                                             @endif
                                           </p>
                                        </div>
                                        <div class="col-sm-6">
                                           <p class="m-b-10 nbigSing f-w-900"><strong>Bank statement </strong>
-                                             : <a class="btn-sm btn alitsBtns hor-grd btn-grd-warning" href="#!">View</a>
+                                             : @if(!empty($data->bankstatement))
+                                             <button type="button" class="btn-sm btn alitsBtns hor-grd btn-grd-warning waves-effect md-trigger bank-statement" doc-img='<img class="d-block img-fluid" src="{{asset("uploads")}}/{{$data->bankstatement}}" alt="Third slide">' data-toggle="modal" data-target="#bankstatementModalCenter">View</button>
+                                             @else
+                                             <button type="button" class="btn-sm btn alitsBtns hor-grd btn-grd-warning waves-effect md-trigger bank-statement" doc-img='<img class="d-block img-fluid" src="{{asset("uploads")}}/{{$data->bank_statement}}" alt="Third slide">' data-toggle="modal" data-target="#bankstatementModalCenter">View</button>
+                                             @endif
                                           </p>
                                        </div>
                                     </div>
@@ -353,13 +397,132 @@
                </div>
 
                <div class="col-lg-12">
-                  <div class="items  card-body" data-group="test">
-                     <a href="#!" class="btn btn-danger">Reverification</a>
-                     <a href="#!" class="btn btn-primary">Verify</a>
-                     <a href="#!" class="btn btn-warning">Reject</a>
-                     <a href="#!" class="btn btn-danger">Decline</a>
-                     <a href="#!" class="btn btn-success">Refer To Credit</a>
-                     <a href="#!" class="btn btn-success">View G</a>
+                  <div class="items card-body" data-group="test">
+                     @if($data->application_status=='Verify')
+                     @if($data->type=='dsa')
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Reverification" class="btn btn-danger btn-verify">Reverification</a>
+                     @endif
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Pending" class="btn btn-primary btn-verify">Verify</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Rejected" class="btn btn-danger btn-verify">Reject</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Decline" class="btn btn-dark btn-verify">Decline</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="RTC" class="btn btn-success btn-verify">Refer To Credit</a>
+                     @if($data->is_gurrantor== 1)
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal10" customer_id="{{$data->s_no}}" order-id="{{$data->order_id}}" class="btn btn-success btn-verify">View G</a>
+                     @endif
+
+                     @elseif($data->application_status=='Reverification')
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Pending" class="btn btn-primary btn-verify">Verify</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Processing" class="btn btn-success btn-verify">Processing</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Hold" class="btn btn-warning btn-verify">Hold</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Rejected" class="btn btn-danger btn-verify">Reject</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Decline" class="btn btn-dark btn-verify">Decline</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="RTC" class="btn btn-info btn-verify">Refer To Credit</a>
+                     @if($data->is_gurrantor== 1)
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal10" customer_id="{{$data->s_no}}" order-id="{{$data->order_id}}" class="btn btn-success btn-verify">View G</a>
+                     @endif
+
+                     @elseif($data->application_status=='Pending')
+                     @if($data->type=='dsa')
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Reverification" class="btn btn-danger btn-verify">Reverification</a>
+                     @endif
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Processing" class="btn btn-success btn-verify">Processing</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Hold" class="btn btn-warning btn-verify">Hold</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Rejected" class="btn btn-danger btn-verify">Reject</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Decline" class="btn btn-dark btn-verify">Decline</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="RTC" class="btn btn-info btn-verify">Refer To Credit</a>
+                     @if($data->is_gurrantor== 1)
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal10" customer_id="{{$data->s_no}}" order-id="{{$data->order_id}}" class="btn btn-success btn-verify">View G</a>
+                     @endif
+
+                     @elseif($data->application_status=='Reject')
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Processing" class="btn btn-success btn-verify">Processing</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Hold" class="btn btn-warning btn-verify">Hold</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Rejected" class="btn btn-danger btn-verify">Reject</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Decline" class="btn btn-dark btn-verify">Decline</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="RTC" class="btn btn-info btn-verify">Refer To Credit</a>
+                     @if($data->is_gurrantor== 1)
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal10" customer_id="{{$data->s_no}}" order-id="{{$data->order_id}}" class="btn btn-success btn-verify">View G</a>
+                     @endif
+
+                     @elseif($data->application_status=='Hold')
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Processing" class="btn btn-success btn-verify">Processing</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Rejected" class="btn btn-danger btn-verify">Reject</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Decline" class="btn btn-dark btn-verify">Decline</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="RTC" class="btn btn-info btn-verify">Refer To Credit</a>
+                     @if($data->is_gurrantor== 1)
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal10" customer_id="{{$data->s_no}}" order-id="{{$data->order_id}}" class="btn btn-success btn-verify">View G</a>
+                     @endif
+
+                     @elseif($data->application_status=='Processing')
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Approved" class="btn btn-success btn-verify">Approve Loan</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Hold" class="btn btn-warning btn-verify">Hold</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Rejected" class="btn btn-danger btn-verify">Reject</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Decline" class="btn btn-dark btn-verify">Decline</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="RTC" class="btn btn-info btn-verify">Refer To Credit</a>
+                     @if($data->is_gurrantor== 1)
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal10" customer_id="{{$data->s_no}}" order-id="{{$data->order_id}}" class="btn btn-success btn-verify">View G</a>
+                     @endif
+
+                     @elseif($data->application_status=='Approved')
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Sanction" class="btn btn-success btn-verify">Sanction Loans</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Hold" class="btn btn-warning btn-verify">Hold</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Rejected" class="btn btn-danger btn-verify">Reject</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Decline" class="btn btn-dark btn-verify">Decline</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="RTC" class="btn btn-info btn-verify">Refer To Credit</a>
+                     @if($data->is_gurrantor== 1)
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal10" customer_id="{{$data->s_no}}" order-id="{{$data->order_id}}" class="btn btn-success btn-verify">View G</a>
+                     @endif
+
+                     @elseif($data->application_status=='Sanction')
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-amount="{{$data->loan_amount}}" loan-status="Disbursed" class="btn btn-success btn-verify">Disburse Loans</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Hold" class="btn btn-warning btn-verify">Hold</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Rejected" class="btn btn-danger btn-verify">Reject</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Decline" class="btn btn-dark btn-verify">Decline</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="RTC" class="btn btn-info btn-verify">Refer To Credit</a>
+                     @if($data->is_gurrantor== 1)
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal10" customer_id="{{$data->s_no}}" order-id="{{$data->order_id}}" class="btn btn-success btn-verify">View G</a>
+                     @endif
+
+                     @elseif($data->application_status=='Folder')
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Approved" class="btn btn-success btn-verify">Approve Loan</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Processing" class="btn btn-success btn-verify">Processing</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Hold" class="btn btn-warning btn-verify">Hold</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Rejected" class="btn btn-danger btn-verify">Reject</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Decline" class="btn btn-dark btn-verify">Decline</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="RTC" class="btn btn-info btn-verify">Refer To Credit</a>
+                     @if($data->is_gurrantor== 1)
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal10" customer_id="{{$data->s_no}}" order-id="{{$data->order_id}}" class="btn btn-success btn-verify">View G</a>
+                     @endif
+
+                     @elseif($data->application_status=='Rejected')
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Hold" class="btn btn-warning btn-verify">Hold</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Processing" class="btn btn-success btn-verify">Processing</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Approved" class="btn btn-success btn-verify">Approve Loan</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Rejected" class="btn btn-danger btn-verify">Reject</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Decline" class="btn btn-dark btn-verify">Decline</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="RTC" class="btn btn-info btn-verify">Refer To Credit</a>
+                     @if($data->is_gurrantor== 1)
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal10" customer_id="{{$data->s_no}}" order-id="{{$data->order_id}}" class="btn btn-success btn-verify">View G</a>
+                     @endif
+
+                     @elseif($data->application_status=='Decline')
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Processing" class="btn btn-success btn-verify">Processing</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Approved" class="btn btn-success btn-verify">Approve Loan</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="RTC" class="btn btn-info btn-verify">Refer To Credit</a>
+                     @if($data->is_gurrantor== 1)
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal10" customer_id="{{$data->s_no}}" order-id="{{$data->order_id}}" class="btn btn-success btn-verify">View G</a>
+                     @endif
+
+                     @elseif($data->application_status=='RTC')
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Hold" class="btn btn-warning btn-verify">Hold</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Processing" class="btn btn-success btn-verify">Processing</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Approved" class="btn btn-success btn-verify">Approve Loan</a>
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal1" data-id="{{$data->s_no}}" order-id="{{$data->order_id}}" loan-status="Rejected" class="btn btn-danger btn-verify">Reject</a>
+                     @if($data->is_gurrantor== 1)
+                     <a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal10" customer_id="{{$data->s_no}}" order-id="{{$data->order_id}}" class="btn btn-success btn-verify">View G</a>
+                     @endif
+
+                     @endif
                   </div>
                </div>
             </div>
@@ -369,37 +532,91 @@
    <div id="styleSelector"></div>
 </div>
 
+@include('admin.all-loans.loan_model')
+
+<script>
+   $(document).on('click', '.md-trigger', function() {
+      var doc_img = $(this).attr('doc-img');
+      $('#doc_img').html(doc_img);
+      // alert(doc_img);
+   });
+   $(document).on('click', '.aadhar-front', function() {
+      var doc_img = $(this).attr('doc-img');
+      $('#aadhar_front').html(doc_img);
+
+   });
+   $(document).on('click', '.pancard-photo', function() {
+      var doc_img = $(this).attr('doc-img');
+      $('#pancard_photo').html(doc_img);
+
+   });
+   $(document).on('click', '.profile-pic', function() {
+      var doc_img = $(this).attr('doc-img');
+      $('#profile_pic').html(doc_img);
+
+   });
+   $(document).on('click', '.salary-slip1', function() {
+      var doc_img = $(this).attr('doc-img');
+      $('#salary_slip1').html(doc_img);
+   });
+   $(document).on('click', '.salary-slip2', function() {
+      var doc_img = $(this).attr('doc-img');
+      $('#salary_slip2').html(doc_img);
+   });
+   $(document).on('click', '.salary-slip3', function() {
+      var doc_img = $(this).attr('doc-img');
+      $('#salary_slip3').html(doc_img);
+   });
+   $(document).on('click', '.bank-statement', function() {
+      var doc_img = $(this).attr('doc-img');
+      $('#bank_statement').html(doc_img);
+   });
 
 
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-      <div class="modal-content">
-         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
-            </button>
-         </div>
-         <div class="modal-body">
-            <!--  -->
-            <div class="owl-carousel carousel-nav owl-theme">
-               <div>
-                  <img class="d-block img-fluid" src="files/assets/images/slider/slider5.jpg" alt="Third slide">
-               </div>
-               <div>
-                  <img class="d-block img-fluid" src="files/assets/images/slider/slider6.jpg" alt="Third slide">
-               </div>
-               <div>
-                  <img class="d-block img-fluid" src="files/assets/images/slider/slider7.jpg" alt="Third slide">
-               </div>
-            </div>
-            <!--  -->
-         </div>
-         <div class="modal-footer  fiterstyt">
-            <button type="button" class="btn btn-danger">View</button>
-            <button type="button" class="btn btn-primary">Print</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-         </div>
-      </div>
-   </div>
-</div>
+   $(document).on('click', '.btn-verify', function() {
+      var id = $(this).attr('data-id');
+      var order_id = $(this).attr('order-id');
+      var status = $(this).attr('loan-status');
+      $('#apply_id').val(id);
+      $('#order_id').val(order_id);
+      $('#application_status').val(status);
+   });
+
+   function verifyUser() {
+      var data_id = $("input[name=apply_id]").val();
+      var order_id = $("input[name=order_id]").val();
+      var application_status = $("input[name=application_status]").val();
+      var message = $("textarea[name=message]").val();
+
+      $.ajax({
+         url: "{{ route('loan.verify') }}",
+         method: "POST",
+         data: {
+            'data_id': data_id,
+            'order_id': order_id,
+            'application_status': application_status,
+            'message': message,
+         },
+         headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+         },
+         beforeSend: function() {
+            $('.loader-bg').show();
+         },
+         complete: function() {
+            $('.loader-bg').hide();
+         },
+         success: function(result) {
+
+            $('#closeButton1').click();
+            Swal.fire('Successfully!', 'Loan Status Changed..', 'success');
+            location.reload();
+            table_schedule();
+
+
+         }
+      });
+
+   }
+</script>
 @endsection
