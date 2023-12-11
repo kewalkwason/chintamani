@@ -99,7 +99,7 @@ class VerificationController extends Controller
                     }
 
                     if ($v->is_gurrantor == 1) {
-                        $action1 = '<a href=' . route('loanuser.details', $orderId) . ' class="btn btn-sm btn-danger>View G</a>';
+                        $action1 = '<a href=' . route('loanuser.details', $orderId) . ' class="btn btn-sm btn-danger">View G</a>';
                     }
                     if (Auth::user()->role == 1) {
                         $action2 = '<a href="JavaScript:void(0);" class="btn btn-sm btn-danger deletedata" data-value="' . $v->s_no . '">Delete</a>';

@@ -78,9 +78,10 @@ class SanctionedLoansController extends Controller
                     $date1 = new DateTime($v->updated_at);
                     $date2 = new DateTime('NOW');
                     $interval = $date1->diff($date2);
+                    $orderId = base64_encode($v->order_id);
 
                     if ($v->is_gurrantor == 1) {
-                        $action = '<a class="btn btn-info" onclick="guarantorListModal(this)" customer_id="' . $v->user_id . '">View G';
+                        $action = '<a href=' . route('loanuser.details', $orderId) . ' class="btn btn-sm btn-danger">View G</a>';
                     }
                     $nestedData['id'] = $count + $start + 1;
                     $nestedData['order_id'] = $v->order_id;
@@ -92,8 +93,8 @@ class SanctionedLoansController extends Controller
                     $nestedData['address_city'] = $v->userDetail->address_city;
                     $nestedData['company_name'] = $v->userDetail->company_name;
                     $nestedData['assigned_to'] = @$v->users->first_name . ' ' . @$v->users->last_name;
-                    $nestedData['action'] = '<a class="btn btn-info" onclick="guarantorListModal(this)" customer_id="' . $v->user_id . '">View G
-                    <a href="" class="btn btn-dark">Add G</a>'.@$action.'
+                    $nestedData['action'] = '<a href=' . route('loanuser.details', $orderId) . ' class="btn btn-sm btn-danger">View G</a>
+                    <a href=' . route('add.gurrantor', base64_encode($v->userDetail->s_no)) . ' class="btn btn-sm btn-success">Add G</a>'.@$action.'
                     <button class="btn btn-warning btn-sm" onclick="viewSummary(this)" id="' . $v->s_no . '" order_id="' . $v->order_id . '">Summary</button>';
                     $data[] = $nestedData;
                     $count++;

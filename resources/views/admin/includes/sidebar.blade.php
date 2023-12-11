@@ -322,7 +322,7 @@ $currentParam = \Route::current()->url;
             </a>
             <ul class="pcoded-submenu">
                <li class="{{($currentUrl == 'emandate.egistration') ? 'active pcoded-trigger' : '' }}">
-                  <a href="{{route('emandate.egistration')}}">
+                  <a href="{{route('emandate.registration')}}">
                      <span class="pcoded-mtext">E-Mandate Registration</span>
                   </a>
                </li>

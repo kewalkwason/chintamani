@@ -13,6 +13,7 @@ use App\Http\Controllers\ContactEnquiryController;
 use App\Http\Controllers\AllwebEnquiryController;
 use App\Http\Controllers\LeadManagementController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\EmandateRegistrationController;
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
@@ -202,11 +203,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::resource('lead_management', LeadManagementController::class);
     Route::get('/leadManagement', [LeadManagementController::class, 'index'])->name('lead.management');
 
+    //// Emandate Registration ////
+    Route::get('/emandate-registration', [EmandateRegistrationController::class, 'index'])->name('emandate.registration');
+
 
     /// Admin Design ////
-    Route::get('/emandate-registration', function () {
-        return view('admin.e-mandate.emandate-registration');
-    })->name('emandate.egistration');
     Route::get('/emandate-failed', function () {
         return view('admin.e-mandate.emandate-failed');
     })->name('emandate.failed');

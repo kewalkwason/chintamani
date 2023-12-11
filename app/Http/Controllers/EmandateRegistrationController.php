@@ -9,7 +9,7 @@ use App\Models\User;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
 
-class ApprovedLoansController extends Controller
+class EmandateRegistrationController extends Controller
 {
     // function __construct()
     // {
@@ -25,14 +25,14 @@ class ApprovedLoansController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::where('role',6)->get();
+        $users = User::where('role', 6)->get();
         if ($request->ajax()) {
             $columns = [
                 0 => 's_no',
                 1 => 'title',
                 2 => 'zone_code',
             ];
-            $totalData = ApplyLoan::with('userDetail','dsaDetail','users')->where('application_status','Approved')->count();
+            $totalData = ApplyLoan::with('userDetail', 'dsaDetail', 'users')->where('application_status', 'Rejected')->count();
             $totalFiltered = $totalData;
             $limit = $request->input('length');
             $start = $request->input('start');
@@ -40,7 +40,7 @@ class ApprovedLoansController extends Controller
             // $dir = $request->input('order.0.dir');
             // DB::enableQueryLog();
             if (empty($request->input('search.value'))) {
-                $tabData = ApplyLoan::with('userDetail','dsaDetail','users')->where('application_status','Approved');
+                $tabData = ApplyLoan::with('userDetail', 'dsaDetail', 'users')->where('application_status', 'Rejected');
                 if (!empty($request->start_date) && !empty($request->end_date)) {
                     $tabData->whereBetween('approved_date', [date('Y-m-d', strtotime($request->start_date)), date('Y-m-d', strtotime($request->end_date))]);
                 } elseif (!empty($request->start_date) && empty($request->end_date)) {
@@ -51,20 +51,20 @@ class ApprovedLoansController extends Controller
                 if (!empty($request->executive_id)) {
                     $tabData->whereDate('updated_by', $request->executive_id);
                 }
-                   $tabData= $tabData->offset($start)
+                $tabData = $tabData->offset($start)
                     ->limit($limit)
                     ->orderBy('s_no', 'DESC')
                     ->get();
             } else {
                 $search = $request->input('search.value');
-                $tabData = ApplyLoan::with('userDetail','dsaDetail','users')->where('application_status','Approved')->where(function ($query) use ($search) {
+                $tabData = ApplyLoan::with('userDetail', 'dsaDetail', 'users')->where('application_status', 'Rejected')->where(function ($query) use ($search) {
                     $query->where('loan_amount', 'LIKE', "%{$search}%");
                 })
                     ->offset($start)
                     ->limit($limit)
                     ->orderBy('s_no', 'DESC')
                     ->get();
-                $totalFiltered = ApplyLoan::with('userDetail','dsaDetail','users')->where('application_status','Approved')->where(function ($query) use ($search) {
+                $totalFiltered = ApplyLoan::with('userDetail', 'dsaDetail', 'users')->where('application_status', 'Rejected')->where(function ($query) use ($search) {
                     $query->where('loan_amount', 'LIKE', "%{$search}%");
                 })
                     ->count();
@@ -81,24 +81,22 @@ class ApprovedLoansController extends Controller
                     $orderId = base64_encode($v->order_id);
 
                     if ($v->is_gurrantor == 1) {
-                        $action = '<a href=' . route('loanuser.details', $orderId) . ' class="btn btn-sm btn-danger">View G</a>';
+                        $action = '<a class="btn btn-info" onclick="guarantorListModal(this)" customer_id="' . $v->user_id . '">View G';
                     }
 
                     $nestedData['id'] = $count + $start + 1;
                     $nestedData['order_id'] = $v->order_id;
-                    $nestedData['type'] = $v->userDetail->type;
+                    $nestedData['type'] = $v->userDetail->type; 
                     $nestedData['dsa_name'] = empty($v->dsaDetail->dsa_name) || $v->userDetail->type != 'dsa' ? '<label class="label label-danger">None</label>' : $v->dsaDetail->dsa_name;
                     $nestedData['name'] = $v->userDetail->first_name . ' ' . $v->userDetail->last_name;
                     $nestedData['phone_no'] = $v->userDetail->phone_no;
                     $nestedData['take_home_salary'] = $v->userDetail->take_home_salary;
-                    $nestedData['address_city'] = $v->userDetail->address_city;                    
-                    $nestedData['company_name'] = $v->userDetail->company_name;      
-                    $nestedData['day_month'] = '<label class="label label-danger">'.$interval->format('%d Days %m Months').'</label>';
-                    $nestedData['applied_date'] = date('d-m-Y', strtotime($v->approved_date));
+                    $nestedData['address_city'] = $v->userDetail->address_city;
+                    $nestedData['applied_date'] = date('d-m-Y', strtotime($v->rejected_date));
                     $nestedData['assigned_to'] = @$v->users->first_name . ' ' . @$v->users->last_name;
                     $nestedData['action'] = '<a href=' . route('loanuser.details', $orderId) . ' class="btn btn-sm btn-danger">View G</a>
-                    <a href=' . route('add.gurrantor', base64_encode($v->userDetail->s_no)) . ' class="btn btn-sm btn-success">Add G</a>
-                    <button class="btn btn-warning btn-sm" onclick="viewSummary(this)" id="'.$v->s_no.'" order_id="'.$v->order_id.'">Summary</button>' . ' ' . @$action;
+                    <a href=' . route('add.gurrantor', base64_encode($v->userDetail->s_no)) . ' class="btn btn-sm btn-success">Add G</a>'.@$action.'
+                    <button class="btn btn-warning btn-sm" onclick="viewSummary(this)" id="' . $v->s_no . '" order_id="' . $v->order_id . '">Summary</button>';
                     $data[] = $nestedData;
                     $count++;
                 }
@@ -112,7 +110,7 @@ class ApprovedLoansController extends Controller
             echo json_encode($json_data);
             exit;
         }
-        return view('admin.all-loans.approved_loans', compact('users'));
+        return view('admin.e-mandate.emandate-registration', compact('users'));
     }
 
     /**
