@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ApplyLoan;
+use App\Models\MandateRegister;
 use App\Models\User;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class EmandateRegistrationController extends Controller
 {
@@ -32,40 +34,32 @@ class EmandateRegistrationController extends Controller
                 1 => 'title',
                 2 => 'zone_code',
             ];
-            $totalData = ApplyLoan::with('userDetail', 'dsaDetail', 'users')->where('application_status', 'Rejected')->count();
+            $totalData = MandateRegister::count();
             $totalFiltered = $totalData;
             $limit = $request->input('length');
             $start = $request->input('start');
-            // $order = $columns[$request->input('order.0.column')];
-            // $dir = $request->input('order.0.dir');
-            // DB::enableQueryLog();
             if (empty($request->input('search.value'))) {
-                $tabData = ApplyLoan::with('userDetail', 'dsaDetail', 'users')->where('application_status', 'Rejected');
-                if (!empty($request->start_date) && !empty($request->end_date)) {
-                    $tabData->whereBetween('approved_date', [date('Y-m-d', strtotime($request->start_date)), date('Y-m-d', strtotime($request->end_date))]);
-                } elseif (!empty($request->start_date) && empty($request->end_date)) {
-                    $tabData->whereDate('approved_date', date('Y-m-d', strtotime($request->start_date)));
-                } elseif (empty($request->start_date) && !empty($request->end_date)) {
-                    $tabData->whereDate('approved_date', date('Y-m-d', strtotime($request->end_date)));
-                }
-                if (!empty($request->executive_id)) {
-                    $tabData->whereDate('updated_by', $request->executive_id);
-                }
+                $tabData = DB::table('mandate_register')
+                    ->select('mandate_register.*', 'bank_list.bank_name',)
+                    ->leftjoin('bank_list', 'bank_list.bank_code', '=', 'mandate_register.bank_code');
+                // if (!empty($request->start_date) && !empty($request->end_date)) {
+                //     $tabData = $tabData->where('apply_loan.order_id', '=', $dcId);
+                // }
                 $tabData = $tabData->offset($start)
                     ->limit($limit)
-                    ->orderBy('s_no', 'DESC')
+                    ->orderBy('mandate_register.date_created', 'DESC')
                     ->get();
             } else {
                 $search = $request->input('search.value');
-                $tabData = ApplyLoan::with('userDetail', 'dsaDetail', 'users')->where('application_status', 'Rejected')->where(function ($query) use ($search) {
-                    $query->where('loan_amount', 'LIKE', "%{$search}%");
+                $tabData = MandateRegister::where(function ($query) use ($search) {
+                    $query->where('user_name', 'LIKE', "%{$search}%");
                 })
                     ->offset($start)
                     ->limit($limit)
-                    ->orderBy('s_no', 'DESC')
+                    ->orderBy('date_created', 'DESC')
                     ->get();
-                $totalFiltered = ApplyLoan::with('userDetail', 'dsaDetail', 'users')->where('application_status', 'Rejected')->where(function ($query) use ($search) {
-                    $query->where('loan_amount', 'LIKE', "%{$search}%");
+                $totalFiltered = MandateRegister::where(function ($query) use ($search) {
+                    $query->where('user_name', 'LIKE', "%{$search}%");
                 })
                     ->count();
             }
@@ -75,28 +69,48 @@ class EmandateRegistrationController extends Controller
             if (!empty($tabData)) {
                 $count = 0;
                 foreach ($tabData as $key => $v) {
-                    $date1 = new DateTime($v->updated_at);
-                    $date2 = new DateTime('NOW');
-                    $interval = $date1->diff($date2);
-                    $orderId = base64_encode($v->order_id);
+                    $sr_no = base64_encode($v->sr_no);
 
-                    if ($v->is_gurrantor == 1) {
-                        $action = '<a class="btn btn-info" onclick="guarantorListModal(this)" customer_id="' . $v->user_id . '">View G';
+                    if ($v->is_active == '1') {
+                        $active = '<span class="badge badge-success">Active</span>';
+                    } elseif ($v->is_active == '1') {
+                        $active = '<span class="badge badge-danger">Deactive</span>';
+                    }
+
+                    $arr = array();
+                    $response_array = explode('|', $v->mandate_registered_response);
+                    if (!empty($response_array[7])) {
+                        $arr =  explode("{", $response_array[7]);
+                        $arr =  explode("~", $arr[2]);
+                        $arr =  explode(":", $arr[0]);
+                        $mrs = $arr[1];
+                    } else {
+                        $mrs = "NA";
+                    }
+
+                    if($v->is_mandate_verified == 1){
+                        $mv = '<i class="fa fa-ban"></i>';
+                    }else{
+                        $mv = '<i class="fa fa-check"></i>';
                     }
 
                     $nestedData['id'] = $count + $start + 1;
-                    $nestedData['order_id'] = $v->order_id;
-                    $nestedData['type'] = $v->userDetail->type; 
-                    $nestedData['dsa_name'] = empty($v->dsaDetail->dsa_name) || $v->userDetail->type != 'dsa' ? '<label class="label label-danger">None</label>' : $v->dsaDetail->dsa_name;
-                    $nestedData['name'] = $v->userDetail->first_name . ' ' . $v->userDetail->last_name;
-                    $nestedData['phone_no'] = $v->userDetail->phone_no;
-                    $nestedData['take_home_salary'] = $v->userDetail->take_home_salary;
-                    $nestedData['address_city'] = $v->userDetail->address_city;
-                    $nestedData['applied_date'] = date('d-m-Y', strtotime($v->rejected_date));
-                    $nestedData['assigned_to'] = @$v->users->first_name . ' ' . @$v->users->last_name;
-                    $nestedData['action'] = '<a href=' . route('loanuser.details', $orderId) . ' class="btn btn-sm btn-danger">View G</a>
-                    <a href=' . route('add.gurrantor', base64_encode($v->userDetail->s_no)) . ' class="btn btn-sm btn-success">Add G</a>'.@$action.'
-                    <button class="btn btn-warning btn-sm" onclick="viewSummary(this)" id="' . $v->s_no . '" order_id="' . $v->order_id . '">Summary</button>';
+                    $nestedData['user_id'] = $v->user_id;
+                    $nestedData['registration_type'] = $v->registration_type;
+                    $nestedData['user_name'] = $v->user_name;
+                    $nestedData['phone'] = $v->phone;
+                    $nestedData['emi_date'] = $v->emi_date;
+                    $nestedData['status'] = $v->status;
+                    $nestedData['mandate_registered_response'] = $mrs;
+                    $nestedData['bank_name'] = $v->bank_name;
+                    $nestedData['amount'] = $v->amount;
+                    $nestedData['emi_amount'] = $v->emi_amount;
+                    $nestedData['max_emi_amount'] = $v->max_emi_amount;
+                    $nestedData['is_mandate_verified'] = $mv;
+                    $nestedData['date_created'] = date('d-m-Y H:i:s', strtotime($v->date_created));
+                    $nestedData['is_active'] = $active;
+                    $nestedData['manage_emi'] = '<a class="btn btn-sm btn-danger" href="#!" data-toggle="modal" data-target="#exampleManage">Manage</a>';
+                    $nestedData['action'] = '<a class="btn btn-sm btn-primary" href=' . route('viewMandate.details', $sr_no) . '>View Details</a>';
                     $data[] = $nestedData;
                     $count++;
                 }
@@ -119,10 +133,22 @@ class EmandateRegistrationController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function create()
-    {
-        return view('admin.city.add');
-    }
+     public function viewMandateDetails($id)
+     {
+         try {
+             $dcId = base64_decode($id);
+             $data = DB::table('mandate_register')
+             ->select('mandate_register.*', 'bank_list.bank_name',)
+             ->leftjoin('bank_list', 'bank_list.bank_code', '=', 'mandate_register.bank_code')
+             ->where('mandate_register.sr_no', '=', $dcId)->first();
+             // print_r($data);die;
+             return view('admin.e-mandate.viewMandateRegistrationDetails', compact('data'));
+         } catch (Exception $e) {
+             Log::error($e->getMessage());
+             $msg = $e->getMessage();
+             return back()->with('error', $msg);
+         }
+     }
 
 
     /**

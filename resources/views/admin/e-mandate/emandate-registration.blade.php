@@ -61,7 +61,7 @@
                                              </tr>
                                           </thead>
                                           <tbody>
-                                             <tr>
+                                             <!-- <tr>
                                                 <td> 01.</td>
                                                 <td> </td>
                                                 <td> </td>
@@ -80,7 +80,7 @@
                                                 <td> <a class="btn btn-sm btn-danger" href="#!" data-toggle="modal" data-target="#exampleManage">Manage</a> </td>
                                                 <td> <a class="btn btn-sm btn-primary" href="view-emandate-registration-details.php">View Details</a> </td>
 
-                                             </tr>
+                                             </tr> -->
 
                                           </tbody>
                                        </table>
@@ -147,31 +147,49 @@
                   "orderable": false
                },
                {
-                  "data": "order_id"
+                  "data": "user_id"
                },
                {
-                  "data": "type"
+                  "data": "registration_type"
                },
                {
-                  "data": "dsa_name"
+                  "data": "user_name"
                },
                {
-                  "data": "name"
+                  "data": "phone"
                },
                {
-                  "data": "phone_no"
+                  "data": "emi_date"
                },
                {
-                  "data": "take_home_salary"
+                  "data": "status"
                },
                {
-                  "data": "address_city"
+                  "data": "mandate_registered_response"
                },
                {
-                  "data": "applied_date"
+                  "data": "bank_name"
                },
                {
-                  "data": "assigned_to"
+                  "data": "amount"
+               },
+               {
+                  "data": "emi_amount"
+               },
+               {
+                  "data": "max_emi_amount"
+               },
+               {
+                  "data": "is_mandate_verified"
+               },
+               {
+                  "data": "date_created"
+               },
+               {
+                  "data": "is_active"
+               },
+               {
+                  "data": "manage_emi"
                },
                {
                   "data": "action"

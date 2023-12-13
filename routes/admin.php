@@ -205,7 +205,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
     //// Emandate Registration ////
     Route::get('/emandate-registration', [EmandateRegistrationController::class, 'index'])->name('emandate.registration');
-
+    Route::get('/view-details/{id}', [EmandateRegistrationController::class, 'viewMandateDetails'])->name('viewMandate.details');
 
     /// Admin Design ////
     Route::get('/emandate-failed', function () {
