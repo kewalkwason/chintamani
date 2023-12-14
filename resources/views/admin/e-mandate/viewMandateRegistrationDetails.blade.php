@@ -38,7 +38,7 @@
                                             <tr>
                                                 <td><strong>Status</strong></td>
                                                 <td>
-                                                    @if($data->is_active == 1)
+                                                    @if(@$data->is_active == 1)
                                                     <label class="label label-success">Active</label>
                                                     @else
                                                     <label class="label label-danger">Deactive</label>

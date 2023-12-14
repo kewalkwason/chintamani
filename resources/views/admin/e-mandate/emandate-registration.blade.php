@@ -61,26 +61,6 @@
                                              </tr>
                                           </thead>
                                           <tbody>
-                                             <!-- <tr>
-                                                <td> 01.</td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td> <i class="fa fa-ban"></i> </a></td>
-                                                <td> </td>
-                                                <td> <span class="badge badge-success">Active</span> </td>
-                                                <td> <a class="btn btn-sm btn-danger" href="#!" data-toggle="modal" data-target="#exampleManage">Manage</a> </td>
-                                                <td> <a class="btn btn-sm btn-primary" href="view-emandate-registration-details.php">View Details</a> </td>
-
-                                             </tr> -->
 
                                           </tbody>
                                        </table>

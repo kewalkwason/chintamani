@@ -206,14 +206,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     //// Emandate Registration ////
     Route::get('/emandate-registration', [EmandateRegistrationController::class, 'index'])->name('emandate.registration');
     Route::get('/view-details/{id}', [EmandateRegistrationController::class, 'viewMandateDetails'])->name('viewMandate.details');
+    Route::get('/emandate-failed', [EmandateRegistrationController::class, 'emandateFailed'])->name('emandate.failed');
+    Route::get('/view-failed-details/{id}', [EmandateRegistrationController::class, 'viewMandateFailedDetails'])->name('viewMandate.faileDetails');
+    Route::get('/emandate-deactivate', [EmandateRegistrationController::class, 'deactiveRegistrations'])->name('emandate.deactivate');
 
     /// Admin Design ////
-    Route::get('/emandate-failed', function () {
-        return view('admin.e-mandate.emandate-failed');
-    })->name('emandate.failed');
-    Route::get('/emandate-deactivate', function () {
-        return view('admin.e-mandate.emandate-deactivate');
-    })->name('emandate.deactivate');
 
     Route::get('/ptp', function () {
         return view('admin.collection.ptp');
