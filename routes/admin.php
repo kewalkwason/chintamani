@@ -14,6 +14,7 @@ use App\Http\Controllers\AllwebEnquiryController;
 use App\Http\Controllers\LeadManagementController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\EmandateRegistrationController;
+use App\Http\Controllers\CallBackListController;
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
@@ -209,6 +210,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/emandate-failed', [EmandateRegistrationController::class, 'emandateFailed'])->name('emandate.failed');
     Route::get('/view-failed-details/{id}', [EmandateRegistrationController::class, 'viewMandateFailedDetails'])->name('viewMandate.faileDetails');
     Route::get('/emandate-deactivate', [EmandateRegistrationController::class, 'deactiveRegistrations'])->name('emandate.deactivate');
+  
+  //// Callback List ////
+    Route::get('/callback-list', [CallBackListController::class, 'index'])->name('call.backlist');
 
     /// Admin Design ////
 

@@ -339,6 +339,13 @@ $currentParam = \Route::current()->url;
             </ul>
          </li>
 
+         <li class="{{($currentUrl == 'call.backlist') ? 'active pcoded-trigger' : '' }}">
+            <a href="{{route('call.backlist')}}">
+               <span class="pcoded-micon"><i class="fa fa-user-plus" aria-hidden="true"></i></span>
+               <span class="pcoded-mtext">Callback List</span>
+            </a>
+         </li>
+
          <li class="pcoded-hasmenu">
             <a href="javascript:void(0)">
                <span class="pcoded-micon"><i class="fa fa-users" aria-hidden="true"></i></span>

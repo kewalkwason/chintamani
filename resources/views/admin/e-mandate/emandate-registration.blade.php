@@ -28,12 +28,38 @@
                </div>
             </div>
             <div class="page-body">
+
                <div class="row">
                   <div class="col-lg-12">
 
                      <div>
                         <div>
                            <div class="items" data-group="test">
+
+
+                              <div class="card">
+                                 <div class="card-body">
+                                    <form class="row g-3">
+                                       <div class="col-md-2">
+                                          <label for="input1" class="form-label">Registration filter by EMI Date :</label>
+                                          <select name="emi_date" id="emi_date" class="form-control">
+                                             <option value="">Select</option>
+                                             <option value="2">2</option>
+                                             <option value="9">9</option>
+                                             <option value="15">15</option>
+                                             <option value="25">25</option>
+                                          </select>
+                                       </div>
+                                       <div class="col-md-3">
+                                          <div class="mts100s"><br/>
+                                             <button type="button" id="filterButton" class="btn btn-dark px-5">Filter</button>
+                                          </div>
+                                       </div>
+
+                                    </form>
+                                 </div>
+                              </div>
+                              <hr>
 
                               <div>
                                  <div>
@@ -79,6 +105,52 @@
       <div id="styleSelector"></div>
    </div>
 
+   <div class="modal fade" id="exampleManage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Manage Mandate Registered Fields</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               <form method="post">
+                  <div class="form-group">
+                     <input type="hidden" name="customerid" id="customerid">
+                     <input type="hidden" name="old_loan_number" id="old_loan_number" value="ABHISHEKKHANDPUR1122">
+                     <label>Minimum EMI Amount</label>
+                     <input type="text" name="minimum_emi_amount" id="minimum_emi_amount" class="form-control" required="">
+                  </div>
+                  <div class="form-group">
+                     <label>Maximum EMI Amount</label>
+                     <input type="text" name="maximum_emi_amount" id="maximum_emi_amount" class="form-control" required="">
+                  </div>
+                  <div class="form-group">
+                     <label>Schedule Status</label>
+                     <select class="form-control" name="schedule_status" id="schedule_status" required="">
+                        <option value="1">Active</option>
+                        <option value="0">Deactive</option>
+                     </select>
+                  </div>
+                  <div class="form-group">
+                     <label>EMI Date <small>(Every Month)</small></label>
+                     <input type="text" name="emi_date_new" id="emi_date_new" class="form-control" required="">
+                  </div>
+                  <div class="form-group">
+                     <label>Loan Number</label>
+                     <input type="text" name="loan_number_new" id="loan_number_new" class="form-control" required="">
+                  </div>
+               </form>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
 
    <script>
       $(document).ready(function() {
@@ -117,9 +189,7 @@
                data: function(d) {
                   d._token = "{{ csrf_token() }}";
                   d.level = 1;
-                  d.start_date = $('#start_date').val();
-                  d.end_date = $('#end_date').val();
-                  d.executive_id = $('#executive_id').val();
+                  d.emi_date = $('#emi_date').val();
                },
             },
             "columns": [{
