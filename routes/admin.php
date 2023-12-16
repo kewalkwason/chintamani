@@ -16,14 +16,13 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\EmandateRegistrationController;
 use App\Http\Controllers\CallBackListController;
 
+
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
-    Route::resource('products', ProductController::class);
-
-    Route::get('/', [App\Http\Controllers\AdminController::class, 'index'])->name('index');
-
+    Route::resource('products', ProductController::class);    
+    Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('index');
     Route::get('/users', [App\Http\Controllers\UsersController::class, 'users'])->name('users');
     Route::get('/add-users', [App\Http\Controllers\UsersController::class, 'addUsers'])->name('add-users');
     Route::get('/edit-users/{id?}', [App\Http\Controllers\UsersController::class, 'editUsers'])->name('edit-users');
@@ -180,10 +179,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('/loan-type-services-update/{id}', [App\Http\Controllers\LoantypeServicesController::class, 'update'])->name('loan-type-services.update');
     Route::get('/loan-type-services-delete/{id}', [App\Http\Controllers\LoantypeServicesController::class, 'destroy'])->name('loan-type-services.delete');
 
-    Route::get('/rejection', [App\Http\Controllers\InquiryController::class, 'rejection'])->name('rejection');
-    Route::get('/enquiry', [App\Http\Controllers\InquiryController::class, 'enquiry'])->name('enquiry');
-    // Route::get('/manual-leads', [App\Http\Controllers\InquiryController::class, 'manual'])->name('manual-leads');
-
     Route::get('/verification', [VerificationController::class, 'index'])->name('verification.loan');
     Route::get('/loanuser-details/{id}', [VerificationController::class, 'loanuserDetails'])->name('loanuser.details');
     Route::get('/addGurrantor/{id}', [VerificationController::class, 'addGurrantor'])->name('add.gurrantor');
@@ -201,6 +196,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
     Route::get('/viewContactEnquiry', [ContactEnquiryController::class, 'index'])->name('viewcontact.enquiry');
     Route::get('/allwebEnquiry', [AllwebEnquiryController::class, 'index'])->name('allwebenquiry.enquiry');
+    Route::get('/rejectionEnquiry', [AllwebEnquiryController::class, 'rejection'])->name('rejection.enquiry');
     Route::resource('lead_management', LeadManagementController::class);
     Route::get('/leadManagement', [LeadManagementController::class, 'index'])->name('lead.management');
 

@@ -39,7 +39,7 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="table-responsive">
-                                                    <table id="table_data" class="table table-striped table-bordered ">
+                                                    <table id="table_data" class="table wtHolder table-striped table-bordered nowrap">
                                                         <thead class="bg-primary text-white">
                                                             <tr>
                                                                 <th>S.No</th>
@@ -83,11 +83,11 @@
     function table_schedule(list) {
         var tableid = 'table_data';
         var table = $('#' + tableid).DataTable({
-            'responsive': true, // Table pagination
+            'responsive': false, // Table pagination
             "processing": true,
             "serverSide": true,
             "bDestroy": true,
-            "bLengthChange": false,
+            "bLengthChange": true,
             // 'dom': 'lBfrtip', // Bottom left status text
             "bAutoWidth": false,
             "bScrollCollapse": true,

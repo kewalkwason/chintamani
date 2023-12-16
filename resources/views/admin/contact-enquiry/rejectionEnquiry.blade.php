@@ -9,7 +9,7 @@
                         <div class="col-lg-8">
                             <div class="page-header-title">
                                 <div class="d-inline">
-                                    <h4>Hold Loans</h4>
+                                    <h4>Rejection Enquiry</h4>
                                 </div>
                             </div>
                         </div>
@@ -17,7 +17,7 @@
                             <div class="page-header-breadcrumb">
                                 <ul class="breadcrumb-title">
                                     <li class="breadcrumb-item" style="float: left;"> <a href="#!">Home</a> </li>
-                                    <li class="breadcrumb-item" style="float: left;"> <a href="#!">Hold Loans</a> </li>
+                                    <li class="breadcrumb-item" style="float: left;"> <a href="#!">Rejection Enquiry</a> </li>
                                 </ul>
                             </div>
                         </div>
@@ -39,21 +39,26 @@
                                             <div class="card-body">
                                                 <form class="row g-3">
                                                     <div class="col-md-3">
+                                                        <label for="input1" class="form-label">Reason of Rejection :</label>
+                                                        <select name="rejection_reason" id="rejection_reason" class="form-control">
+                                                            <option value="4">Reason of Rejection</option>
+                                                            <option value="4">Out Of Location</option>
+                                                            <option value="6">Nagative Area</option>
+                                                            <option value="7">Low Salary</option>
+                                                            <option value="9">Not Intrested</option>
+                                                            <option value="10">M factor</option>
+                                                            <option value="12">Not Eligible</option>
+                                                            <option value="12">Rininging</option>
+                                                            <option value="12">Switch Off</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-3">
                                                         <label for="input1" class="form-label">Start Date</label>
                                                         <input type="date" class="form-control shadow" name="start_date" id="start_date">
                                                     </div>
                                                     <div class="col-md-3">
                                                         <label for="input2" class="form-label">End Date</label>
                                                         <input type="date" class="form-control shadow" id="end_date" name="end_date">
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <label for="input2" class="form-label">Select Executive</label>
-                                                        <select name="executive_id" class="form-control">
-                                                            <option value="all">All</option>
-                                                            @foreach($users as $value)
-                                                            <option value="{{$value->id}}">{{$value->first_name}}</option>
-                                                            @endforeach
-                                                        </select>
                                                     </div>
                                                     <div class="col-sm-3" style="margin-top: 37px;">
                                                         <button type="button" id="filterButton" class="btn btn-primary aasUsrr">Filter</button>
@@ -68,17 +73,14 @@
                                                         <thead class="bg-primary text-white">
                                                             <tr>
                                                                 <th>S.No</th>
-                                                                <th>Order Id</th>
                                                                 <th>Source</th>
-                                                                <th>DSA Name</th>
                                                                 <th>Name</th>
-                                                                <th>Phone</th>
-                                                                <th>Salary</th>
-                                                                <th>City</th>
-                                                                <th>Company Name</th>
-                                                                <th>Delay Days</th>
-                                                                <th>Hold Date</th>
-                                                                <th>Hold By/Assigned to</th>
+                                                                <th>Phone Number</th>
+                                                                <th>Email</th>
+                                                                <th>Date</th>
+                                                                <th>Pan Number</th>
+                                                                <th>Status</th>
+                                                                <th>Loan Type</th>
                                                                 <th>Action</th>
                                                             </tr>
                                                         </thead>
@@ -119,10 +121,7 @@
                                                 <div class="form-group">
                                                     <select class="form-control border-input" name="smstype" id="smstype" onchange="selectmsgType(this)">
                                                         <option value="">--Select an option--</option>
-                                                        <!-- 1707164034891305017 -->
                                                         <option value="1707166755915758378">Promotion Message</option>
-                                                        <!-- 1707164015083128933 -->
-                                                        <!-- 1707166738115898113 -->
                                                         <option value="1707166738115898113">Reminder messages</option>
                                                     </select>
                                                     <label style="float:left;">Message</label>
@@ -183,7 +182,7 @@
     }
 </script>
 <script>
-     $(document).ready(function() {
+    $(document).ready(function() {
         table_schedule();
         $('#filterButton').on('click', function() {
             table_schedule();
@@ -191,8 +190,8 @@
 
     });
 
-    var list = '{{ route("holdloans.loan") }}';
-    var titleName = 'Hold Loans';
+    var list = '{{ route("rejection.enquiry") }}';
+    var titleName = 'rejection Enquiry';
     $(document).ready(function() {
         table_schedule(list);
     });
@@ -221,7 +220,6 @@
                     d.level = 1;
                     d.start_date = $('#start_date').val();
                     d.end_date = $('#end_date').val();
-                    d.executive_id = $('#executive_id').val();
                 },
             },
             "columns": [{
@@ -229,13 +227,7 @@
                     "orderable": false
                 },
                 {
-                    "data": "order_id"
-                },
-                {
-                    "data": "type"
-                },
-                {
-                    "data": "dsa_name"
+                    "data": "source"
                 },
                 {
                     "data": "name"
@@ -244,22 +236,19 @@
                     "data": "phone_no"
                 },
                 {
-                    "data": "take_home_salary"
-                },
-                {
-                    "data": "address_city"
-                },
-                {
-                    "data": "company_name"
-                },
-                {
-                    "data": "day_month"
+                    "data": "email"
                 },
                 {
                     "data": "applied_date"
                 },
                 {
-                    "data": "assigned_to"
+                    "data": "pan_number"
+                },
+                {
+                    "data": "status"
+                },
+                {
+                    "data": "loan_type"
                 },
                 {
                     "data": "action"

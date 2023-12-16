@@ -218,32 +218,37 @@ $currentParam = \Route::current()->url;
             </a>
             <ul class="pcoded-submenu">
                @can('enquiry-read')
-               <li class=" {{($currentUrl == 'viewcontact.enquiry') ? 'active pcoded-trigger' : '' }}">
+               <!-- <li class=" {{($currentUrl == 'viewcontact.enquiry') ? 'active pcoded-trigger' : '' }}">
                   <a href="{{ route('viewcontact.enquiry') }}">
                      <span class="pcoded-mtext">Contact Enquiries</span>
                   </a>
-               </li>
+               </li> -->
                <li class=" {{($currentUrl == 'allwebenquiry.enquiry') ? 'active pcoded-trigger' : '' }}">
                   <a href="{{ route('allwebenquiry.enquiry') }}">
-                     <span class="pcoded-mtext">Web Enquiry</span>
+                     <span class="pcoded-mtext">Enquiry</span>
                   </a>
                </li>
                @endcan
                @can('ManualLeads-read')
                <li class=" {{($currentUrl == 'lead.management') ? 'active pcoded-trigger' : '' }}">
                   <a href="{{ route('lead.management') }}">
-                     <span class="pcoded-mtext">Lead Management</span>
+                     <span class="pcoded-mtext">Manual Leads</span>
                   </a>
                </li>
 
                @endcan
-               <!-- @can('rejection-read')
-               <li>
-                  <a href="{{route('rejection')}}">
+               @can('rejection-read')
+               <li class=" {{($currentUrl == 'rejection.enquiry') ? 'active pcoded-trigger' : '' }}">
+                  <a href="{{route('rejection.enquiry')}}">
                      <span class="pcoded-mtext">Enquiry Rejection</span>
                   </a>
                </li>
-               @endcan -->
+               <li class=" {{($currentUrl == 'rejection.enquiry') ? 'active pcoded-trigger' : '' }}">
+                  <a href="{{route('rejection.enquiry')}}">
+                     <span class="pcoded-mtext">FollowUp</span>
+                  </a>
+               </li>
+               @endcan
             </ul>
          </li>
 
@@ -321,7 +326,7 @@ $currentParam = \Route::current()->url;
                <span class="pcoded-mtext">E-Mandate</span>
             </a>
             <ul class="pcoded-submenu">
-               <li class="{{($currentUrl == 'emandate.egistration') ? 'active pcoded-trigger' : '' }}">
+               <li class="{{($currentUrl == 'emandate.registration') ? 'active pcoded-trigger' : '' }}">
                   <a href="{{route('emandate.registration')}}">
                      <span class="pcoded-mtext">E-Mandate Registration</span>
                   </a>
