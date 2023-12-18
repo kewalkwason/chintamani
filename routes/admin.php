@@ -181,6 +181,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
     Route::get('/verification', [VerificationController::class, 'index'])->name('verification.loan');
     Route::get('/loanuser-details/{id}', [VerificationController::class, 'loanuserDetails'])->name('loanuser.details');
+    Route::get('/getReports', [VerificationController::class, 'getReports'])->name('get.reports');
     Route::get('/addGurrantor/{id}', [VerificationController::class, 'addGurrantor'])->name('add.gurrantor');
     Route::post('/addNewGurrantor', [VerificationController::class, 'addNewGurrantor'])->name('add.new.gurrantor');
     Route::post('/loan-verify', [VerificationController::class, 'loanVerify'])->name('loan.verify');
@@ -196,7 +197,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
     Route::get('/viewContactEnquiry', [ContactEnquiryController::class, 'index'])->name('viewcontact.enquiry');
     Route::get('/allwebEnquiry', [AllwebEnquiryController::class, 'index'])->name('allwebenquiry.enquiry');
+    Route::get('/view-enquiry/{id}', [AllwebEnquiryController::class, 'viewEnquiry'])->name('view.enquiry');
     Route::get('/rejectionEnquiry', [AllwebEnquiryController::class, 'rejection'])->name('rejection.enquiry');
+    Route::get('/followUp', [AllwebEnquiryController::class, 'followUp'])->name('followUp.enquiry');
     Route::resource('lead_management', LeadManagementController::class);
     Route::get('/leadManagement', [LeadManagementController::class, 'index'])->name('lead.management');
 

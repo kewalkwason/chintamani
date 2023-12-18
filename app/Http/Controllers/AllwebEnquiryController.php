@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\UserPersonalDetails;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AllwebEnquiryController extends Controller
 {
@@ -27,21 +28,12 @@ class AllwebEnquiryController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $columns = [
-                0 => 's_no',
-                1 => 'first_name',
-                2 => 'last_name',
-                3 => 'phone_no',
-            ];
-            $totalData = UserPersonalDetails::with('appyloan','users')->where('type','web')->count();
+            $totalData = UserPersonalDetails::with('appyloan','users')->where('type','web')->where('status',0)->count();
             $totalFiltered = $totalData;
             $limit = $request->input('length');
             $start = $request->input('start');
-            // $order = $columns[$request->input('order.0.column')];
-            // $dir = $request->input('order.0.dir');
-            // DB::enableQueryLog();
             if (empty($request->input('search.value'))) {
-                $tabData = UserPersonalDetails::with('appyloan','users')->where('type','web');
+                $tabData = UserPersonalDetails::with('appyloan','users')->where('type','web')->where('status',0);
                 if (!empty($request->start_date) && !empty($request->end_date)) {
                     $tabData->whereBetween('updated_at', [date('Y-m-d', strtotime($request->start_date)), date('Y-m-d', strtotime($request->end_date))]);
                 } elseif (!empty($request->start_date) && empty($request->end_date)) {
@@ -55,14 +47,14 @@ class AllwebEnquiryController extends Controller
                     ->get();
             } else {
                 $search = $request->input('search.value');
-                $tabData = UserPersonalDetails::with('appyloan','users')->where('type','web')->where(function ($query) use ($search) {
+                $tabData = UserPersonalDetails::with('appyloan','users')->where('type','web')->where('status',0)->where(function ($query) use ($search) {
                     $query->where('loan_amount', 'LIKE', "%{$search}%");
                 })
                     ->offset($start)
                     ->limit($limit)
                     ->orderBy('s_no', 'DESC')
                     ->get();
-                $totalFiltered = UserPersonalDetails::with('appyloan','users')->where('type','web')->where(function ($query) use ($search) {
+                $totalFiltered = UserPersonalDetails::with('appyloan','users')->where('type','web')->where('status',0)->where(function ($query) use ($search) {
                     $query->where('loan_amount', 'LIKE', "%{$search}%");
                 })
                     ->count();
@@ -73,20 +65,25 @@ class AllwebEnquiryController extends Controller
             if (!empty($tabData)) {
                 $count = 0;
                 foreach ($tabData as $key => $v) {
-                    $date1 = new DateTime($v->updated_at);
-                    $date2 = new DateTime('NOW');
-                    $interval = $date1->diff($date2);
+                    $orderId = base64_encode($v->s_no);
+                    if($v->status==0){
+                        $status = 'Pending';
+                    }elseif($v->status==2){
+                        $status = 'Follow Up';
+                    }elseif($v->status==3){
+                        $status = 'Rejected';
+                    }
 
                     $nestedData['id'] = $count + $start + 1;
+                    $nestedData['source'] = $v->type;
                     $nestedData['name'] = $v->first_name . ' ' . $v->last_name;
                     $nestedData['phone_no'] = $v->phone_no;
-                    $nestedData['email'] = $v->email;
-                    $nestedData['address_city'] = $v->address_city;                    
-                    $nestedData['day_month'] = '<label class="label label-danger">'.$interval->format('%d Days %m Months').'</label>';
-                    $nestedData['remarks'] = getRemarks($v->s_no)->remark ?? '';
-                    $nestedData['assigned_to'] = @$v->users->first_name . ' ' . @$v->users->last_name;
-                    $nestedData['applied_date'] = date('d-m-Y', strtotime($v->date_created));                    
-                    $nestedData['action'] = '<a href="" class="btn btn-info">View</a>';
+                    $nestedData['email'] = $v->work_email;
+                    $nestedData['applied_date'] = date('d-m-Y', strtotime($v->date_created));  
+                    $nestedData['pan_number'] = $v->pan_card_no; 
+                    $nestedData['status'] = $status; 
+                    $nestedData['loan_type'] = $v->house_type;                                       
+                    $nestedData['action'] = '<a href=' . route('view.enquiry', $orderId) . ' class="btn btn-info">View</a>';
                     $data[] = $nestedData;
                     $count++;
                 }
@@ -107,12 +104,12 @@ class AllwebEnquiryController extends Controller
     public function rejection(Request $request)
     {
         if ($request->ajax()) {
-            $totalData = UserPersonalDetails::with('appyloan','users')->where('type','web')->count();
+            $totalData = UserPersonalDetails::with('appyloan','users')->where('type','web')->where('status',3)->count();
             $totalFiltered = $totalData;
             $limit = $request->input('length');
             $start = $request->input('start');
             if (empty($request->input('search.value'))) {
-                $tabData = UserPersonalDetails::with('appyloan','users')->where('type','web');
+                $tabData = UserPersonalDetails::with('appyloan','users')->where('type','web')->where('status',3);
                 if (!empty($request->start_date) && !empty($request->end_date)) {
                     $tabData->whereBetween('updated_at', [date('Y-m-d', strtotime($request->start_date)), date('Y-m-d', strtotime($request->end_date))]);
                 } elseif (!empty($request->start_date) && empty($request->end_date)) {
@@ -126,14 +123,14 @@ class AllwebEnquiryController extends Controller
                     ->get();
             } else {
                 $search = $request->input('search.value');
-                $tabData = UserPersonalDetails::with('appyloan','users')->where('type','web')->where(function ($query) use ($search) {
+                $tabData = UserPersonalDetails::with('appyloan','users')->where('type','web')->where('status',3)->where(function ($query) use ($search) {
                     $query->where('loan_amount', 'LIKE', "%{$search}%");
                 })
                     ->offset($start)
                     ->limit($limit)
                     ->orderBy('s_no', 'DESC')
                     ->get();
-                $totalFiltered = UserPersonalDetails::with('appyloan','users')->where('type','web')->where(function ($query) use ($search) {
+                $totalFiltered = UserPersonalDetails::with('appyloan','users')->where('type','web')->where('status',3)->where(function ($query) use ($search) {
                     $query->where('loan_amount', 'LIKE', "%{$search}%");
                 })
                     ->count();
@@ -144,9 +141,14 @@ class AllwebEnquiryController extends Controller
             if (!empty($tabData)) {
                 $count = 0;
                 foreach ($tabData as $key => $v) {
-                    $date1 = new DateTime($v->updated_at);
-                    $date2 = new DateTime('NOW');
-                    $interval = $date1->diff($date2);
+                    $orderId = base64_encode($v->s_no);
+                    if($v->status==0){
+                        $status = 'Pending';
+                    }elseif($v->status==2){
+                        $status = 'Follow Up';
+                    }elseif($v->status==3){
+                        $status = 'Rejected';
+                    }
 
                     $nestedData['id'] = $count + $start + 1;
                     $nestedData['source'] = $v->type;
@@ -155,9 +157,9 @@ class AllwebEnquiryController extends Controller
                     $nestedData['email'] = $v->work_email;
                     $nestedData['applied_date'] = date('d-m-Y', strtotime($v->date_created));  
                     $nestedData['pan_number'] = $v->pan_card_no; 
-                    $nestedData['status'] = 'Rejected'; 
+                    $nestedData['status'] = $status; 
                     $nestedData['loan_type'] = $v->house_type;                                       
-                    $nestedData['action'] = '<a href="" class="btn btn-info">View</a>';
+                    $nestedData['action'] = '<a href=' . route('view.enquiry', $orderId) . ' class="btn btn-info">View</a>';
                     $data[] = $nestedData;
                     $count++;
                 }
@@ -174,16 +176,106 @@ class AllwebEnquiryController extends Controller
         return view('admin.contact-enquiry.rejectionEnquiry');
     }
 
+
+    public function followUp(Request $request)
+    {
+        if ($request->ajax()) {
+            $totalData = UserPersonalDetails::with('appyloan','users')->where('type','web')->where('status',2)->count();
+            $totalFiltered = $totalData;
+            $limit = $request->input('length');
+            $start = $request->input('start');
+            if (empty($request->input('search.value'))) {
+                $tabData = UserPersonalDetails::with('appyloan','users')->where('type','web')->where('status',2);
+                if (!empty($request->start_date) && !empty($request->end_date)) {
+                    $tabData->whereBetween('updated_at', [date('Y-m-d', strtotime($request->start_date)), date('Y-m-d', strtotime($request->end_date))]);
+                } elseif (!empty($request->start_date) && empty($request->end_date)) {
+                    $tabData->whereDate('updated_at', date('Y-m-d', strtotime($request->start_date)));
+                } elseif (empty($request->start_date) && !empty($request->end_date)) {
+                    $tabData->whereDate('updated_at', date('Y-m-d', strtotime($request->end_date)));
+                }
+               $tabData = $tabData->offset($start)
+                    ->limit($limit)
+                    ->orderBy('s_no', 'DESC')
+                    ->get();
+            } else {
+                $search = $request->input('search.value');
+                $tabData = UserPersonalDetails::with('appyloan','users')->where('type','web')->where('status',2)->where(function ($query) use ($search) {
+                    $query->where('loan_amount', 'LIKE', "%{$search}%");
+                })
+                    ->offset($start)
+                    ->limit($limit)
+                    ->orderBy('s_no', 'DESC')
+                    ->get();
+                $totalFiltered = UserPersonalDetails::with('appyloan','users')->where('type','web')->where('status',2)->where(function ($query) use ($search) {
+                    $query->where('loan_amount', 'LIKE', "%{$search}%");
+                })
+                    ->count();
+            }
+
+            // print_r(DB::getQueryLog());die();
+            $data = [];
+            if (!empty($tabData)) {
+                $count = 0;
+                foreach ($tabData as $key => $v) {
+                    $orderId = base64_encode($v->s_no);
+                    if($v->status==0){
+                        $status = 'Pending';
+                    }elseif($v->status==2){
+                        $status = 'Follow Up';
+                    }elseif($v->status==3){
+                        $status = 'Rejected';
+                    }
+
+                    $nestedData['id'] = $count + $start + 1;
+                    $nestedData['source'] = $v->type;
+                    $nestedData['name'] = $v->first_name . ' ' . $v->last_name;
+                    $nestedData['phone_no'] = $v->phone_no;
+                    $nestedData['email'] = $v->work_email;
+                    $nestedData['applied_date'] = date('d-m-Y', strtotime($v->date_created));  
+                    $nestedData['pan_number'] = $v->pan_card_no; 
+                    $nestedData['status'] = $status; 
+                    $nestedData['loan_type'] = $v->house_type;                                       
+                    $nestedData['action'] = '<a href=' . route('view.enquiry', $orderId) . ' class="btn btn-info">View</a>';
+                    $data[] = $nestedData;
+                    $count++;
+                }
+            }
+            $json_data = [
+                'draw' => intval($request->input('draw')),
+                'recordsTotal' => intval($totalData),
+                'recordsFiltered' => intval($totalFiltered),
+                'data' => $data,
+            ];
+            echo json_encode($json_data);
+            exit;
+        }
+        return view('admin.contact-enquiry.followUp');
+    }
+    
+    
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
 
-    public function create()
-    {
-        return view('admin.city.add');
-    }
+     public function viewEnquiry($id)
+     {
+         try {
+             $dcId = base64_decode($id);
+             $data = DB::table('user_personal_details')
+                 ->select('user_personal_details.*')
+                 ->join('apply_loan', 'user_personal_details.s_no', '=', 'apply_loan.user_id')
+                 ->leftjoin('users', 'users.id', '=', 'user_personal_details.assigned_to')
+                 ->where('user_personal_details.s_no', '=', $dcId)->first();
+             // print_r($data);die;
+             return view('admin.contact-enquiry.viewEnquiry', compact('data'));
+         } catch (Exception $e) {
+             Log::error($e->getMessage());
+             $msg = $e->getMessage();
+             return back()->with('error', $msg);
+         }
+     }
 
 
     /**

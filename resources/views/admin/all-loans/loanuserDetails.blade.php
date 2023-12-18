@@ -386,6 +386,20 @@
                                        </div>
                                     </div>
 
+
+                                    <div class="row">
+                                       <div class="col-sm-6">
+                                          <p class="m-b-10 nbigSing f-w-900"><strong>Employee ID </strong>
+                                             : <a class="btn-sm btn alitsBtns hor-grd btn-grd-warning" href="#!">View</a>
+                                          </p>
+                                       </div>
+                                       <div class="col-sm-6">
+                                          <p class="m-b-10 nbigSing f-w-900"><strong>Others </strong>
+                                             : <a class="btn-sm btn alitsBtns hor-grd btn-grd-warning" href="#!">View</a>
+                                          </p>
+                                       </div>
+                                    </div>
+
                                  </div>
 
 
@@ -395,6 +409,168 @@
                      </div>
                   </div>
                </div>
+
+
+               @if($data->application_status=='Processing')
+               <div class="col-lg-12">
+                  <div class="items" data-group="test">
+                     <div class="col-xl-12 col-md-12">
+                        <div class="card user-card-full">
+                           <div class="row">
+                              <div class="col-md-12 card shadow bg-danger">
+                                 <h4 class="getInfo">Credit Analytics</h4>
+                              </div>
+                           </div>
+                           <div class="row m-l-0 m-r-0">
+
+
+                              <div class="col-md-6">
+                                 <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label"> <strong>Cibil Score</strong> </label>
+                                    <div class="col-sm-3">
+                                       <input type="text" disabled="" class="form-control form-control-dark shadow" value="23123 ">
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <button class=" btn hor-grd btn-grd-warning ">View</button>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label"> <strong>Cibil Reports</strong> </label>
+                                    <div class="col-sm-3">
+                                       <!--  <input type="text" disabled="" class="form-control form-control-dark shadow" value="12345 "> -->
+                                       <a href="{{route('get.reports')}}" class=" btn btn-sm hor-grd btn-grd-primary ">Get Report</a>
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <button class=" btn hor-grd btn-grd-warning ">View</button>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <div class="col-md-6">
+                                 <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label"> <strong>FI By (Home)</strong> </label>
+                                    <div class="col-sm-3">
+                                       <input type="text" disabled="" class="form-control form-control-dark shadow" value="Bikash ">
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <button class=" btn hor-grd btn-grd-warning ">View</button>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label"> <strong>Remarks</strong> </label>
+                                    <div class="col-sm-3">
+                                       <input type="text" disabled="" class="form-control form-control-dark shadow">
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <button class=" btn hor-grd btn-grd-warning ">View</button>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <div class="col-md-6">
+                                 <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label"> <strong>FI By (Office)</strong> </label>
+                                    <div class="col-sm-3">
+                                       <input type="text" disabled="" class="form-control form-control-dark shadow" value="Bikash ">
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <button class=" btn hor-grd btn-grd-warning ">View</button>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label"> <strong>Remarks</strong> </label>
+                                    <div class="col-sm-3">
+                                       <input type="text" disabled="" class="form-control form-control-dark shadow">
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <button class=" btn hor-grd btn-grd-warning ">View</button>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <div class="col-md-6">
+                                 <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label"> <strong>Nature of Default</strong> </label>
+                                    <div class="col-sm-3">
+                                       <input type="text" disabled="" class="form-control form-control-dark shadow" value="123123 ">
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <button class=" btn hor-grd btn-grd-warning ">View</button>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label"> <strong>Latest Default:</strong> </label>
+                                    <div class="col-sm-3">
+                                       <input type="text" disabled="" class="form-control form-control-dark shadow">
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <button class=" btn hor-grd btn-grd-warning ">View</button>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <div class="col-md-6">
+                                 <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label"> <strong>Cheqe Return</strong> </label>
+                                    <div class="col-sm-3">
+                                       <input type="text" disabled="" class="form-control form-control-dark shadow" value="123123 ">
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <button class=" btn hor-grd btn-grd-warning ">View</button>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label"> <strong>Salary Date:</strong> </label>
+                                    <div class="col-sm-3">
+                                       <input type="text" disabled="" class="form-control form-control-dark shadow">
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <button class=" btn hor-grd btn-grd-warning ">View</button>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label"> <strong>Income Proof</strong> </label>
+                                    <div class="col-sm-3">
+                                       <input type="text" disabled="" class="form-control form-control-dark shadow">
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <button class=" btn hor-grd btn-grd-warning ">View</button>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label"> <strong>Current Loan:</strong> </label>
+                                    <div class="col-sm-3">
+                                       <input type="text" disabled="" class="form-control form-control-dark shadow">
+                                    </div>
+                                    <div class="col-sm-3">
+
+                                    </div>
+                                 </div>
+                              </div>
+
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               @endif
+
+
+
 
                <div class="col-lg-12">
                   <div class="items card-body" data-group="test">

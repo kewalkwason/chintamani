@@ -243,9 +243,9 @@ $currentParam = \Route::current()->url;
                      <span class="pcoded-mtext">Enquiry Rejection</span>
                   </a>
                </li>
-               <li class=" {{($currentUrl == 'rejection.enquiry') ? 'active pcoded-trigger' : '' }}">
-                  <a href="{{route('rejection.enquiry')}}">
-                     <span class="pcoded-mtext">FollowUp</span>
+               <li class=" {{($currentUrl == 'followUp.enquiry') ? 'active pcoded-trigger' : '' }}">
+                  <a href="{{route('followUp.enquiry')}}">
+                     <span class="pcoded-mtext">Follow Up</span>
                   </a>
                </li>
                @endcan

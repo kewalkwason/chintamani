@@ -9,7 +9,7 @@
                         <div class="col-lg-8">
                             <div class="page-header-title">
                                 <div class="d-inline">
-                                    <h4>Web Enquiry</h4>
+                                    <h4>Follow Up</h4>
                                 </div>
                             </div>
                         </div>
@@ -17,7 +17,7 @@
                             <div class="page-header-breadcrumb">
                                 <ul class="breadcrumb-title">
                                     <li class="breadcrumb-item" style="float: left;"> <a href="#!">Home</a> </li>
-                                    <li class="breadcrumb-item" style="float: left;"> <a href="#!">Web Enquiry</a> </li>
+                                    <li class="breadcrumb-item" style="float: left;"> <a href="#!">Follow Up</a> </li>
                                 </ul>
                             </div>
                         </div>
@@ -38,32 +38,20 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <form class="row g-3">
-
-                                                <div class="col-md-3">
-                                                            <label for="input1" class="form-label">Assign To :</label>
-                                                            <select onchange="leaveChangeExeName(this.value)" class="form-control">
-                                                              <option value="" selected="selected">All</option>
-                                                                  <option value="4">Vijay</option>
-                                                                  <option value="6">Gaurav</option>
-                                                                  <option value="7">Varsha</option>
-                                                                  <option value="9">Chamma</option>
-                                                                  <option value="10">Poonam</option>
-                                                                  <option value="12">Prashant</option>
-                                                                  <option value="14">Yashika</option>
-                                                                  <option value="16">Prashant</option>
-                                                                  <option value="22">Shalu</option>
-                                                                  <option value="23">Anjali</option>
-                                                                  <option value="24">Tanya</option>
-                                                                  <option value="25">Rupa</option>
-                                                                  <option value="26">Ruchi</option>
-                                                                  <option value="28">Kumari </option>
-                                                                  <option value="32">Ritu</option>
-                                                                  <option value="34">Sanjana</option>
-                                                                  <option value="35">Prerna </option>
-                                                                  <option value="36">Salu</option>
-                                                            </select>
-                                                         </div>
-                                                         
+                                                    <div class="col-md-3">
+                                                        <label for="input1" class="form-label">Reason of Rejection :</label>
+                                                        <select name="rejection_reason" id="rejection_reason" class="form-control">
+                                                            <option value="4">Reason of Rejection</option>
+                                                            <option value="4">Out Of Location</option>
+                                                            <option value="6">Nagative Area</option>
+                                                            <option value="7">Low Salary</option>
+                                                            <option value="9">Not Intrested</option>
+                                                            <option value="10">M factor</option>
+                                                            <option value="12">Not Eligible</option>
+                                                            <option value="12">Rininging</option>
+                                                            <option value="12">Switch Off</option>
+                                                        </select>
+                                                    </div>
                                                     <div class="col-md-3">
                                                         <label for="input1" class="form-label">Start Date</label>
                                                         <input type="date" class="form-control shadow" name="start_date" id="start_date">
@@ -81,7 +69,7 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="table-responsive">
-                                                <table id="table_data" class="table wtHolder table-striped table-bordered nowrap">
+                                                    <table id="table_data" class="table wtHolder table-striped table-bordered nowrap">
                                                         <thead class="bg-primary text-white">
                                                             <tr>
                                                                 <th>S.No</th>
@@ -202,8 +190,8 @@
 
     });
 
-    var list = '{{ route("allwebenquiry.enquiry") }}';
-    var titleName = 'Web Enquiry';
+    var list = '{{ route("followUp.enquiry") }}';
+    var titleName = 'follow Up';
     $(document).ready(function() {
         table_schedule(list);
     });

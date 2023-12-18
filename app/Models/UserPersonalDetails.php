@@ -100,6 +100,7 @@ class UserPersonalDetails extends Model
         'applyarea',
         'date_time',
         'pancard_no',
+        'status',
     ];
     public function appyloan()
     {

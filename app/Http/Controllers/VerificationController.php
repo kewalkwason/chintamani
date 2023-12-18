@@ -178,6 +178,17 @@ class VerificationController extends Controller
         }
     }
 
+    public function getReports()
+    {
+        try {
+            return view('admin.all-loans.getReports');
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+            $msg = $e->getMessage();
+            return back()->with('error', $msg);
+        }
+    }
+
     public function loanVerify(Request $request)
     {
         try {
